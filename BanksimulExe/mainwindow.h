@@ -3,6 +3,8 @@
 #include <QTimer>
 #include <QDebug>
 #include <QMainWindow>
+#include "DLLPINCode/dllpincode.h"
+#include "DLLPINCode/dllpincode_global.h"
 
 namespace Ui {
 class MainWindow;
@@ -37,6 +39,8 @@ private slots:
     void on_Sulje_2_clicked();
     void on_KirjauduUlos_2_clicked();
     void on_Paavalikko_clicked();
+    void on_KirjauduSisaan_clicked();
+    //void Paavalikko();
 
 signals:
 
@@ -45,6 +49,8 @@ private:
     QTimer *timer;
     short time;
     short page;
+    QString PinCode;
+    DLLPINCode *objectDLLPINCode;
 };
 
 #endif // MAINWINDOW_H

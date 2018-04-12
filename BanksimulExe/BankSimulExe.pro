@@ -1,6 +1,6 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2018-04-03T09:18:20
+# Project created by QtCreator 2018-04-03T09:30:46
 #
 #-------------------------------------------------
 
@@ -8,7 +8,7 @@ QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = TestiExe
+TARGET = BankSimulExe
 TEMPLATE = app
 
 # The following define makes your compiler emit warnings if you use
@@ -32,12 +32,6 @@ HEADERS += \
 
 FORMS += \
         mainwindow.ui
-
-win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../build-DLLPINCode-Desktop_Qt_5_10_0_MinGW_32bit-Debug/release/ -lDLLPINCode
-else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../build-DLLPINCode-Desktop_Qt_5_10_0_MinGW_32bit-Debug/debug/ -lDLLPINCode
-
-INCLUDEPATH += $$PWD/../
-DEPENDPATH += $$PWD/../
 
 win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../build-DLLPINCode-Desktop_Qt_5_10_0_MinGW_32bit-Debug/release/ -lDLLPINCode
 else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../build-DLLPINCode-Desktop_Qt_5_10_0_MinGW_32bit-Debug/debug/ -lDLLPINCode

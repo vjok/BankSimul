@@ -10,14 +10,24 @@ MainWindow::MainWindow(QWidget *parent) :
     timer = new QTimer(this);
     Timer();
     timer->stop();
+    objectDLLPINCode = new DLLPINCode;
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
     delete timer;
+    delete objectDLLPINCode;
     ui = NULL;
     timer = NULL;
+    objectDLLPINCode = NULL;
+}
+
+void MainWindow::on_KirjauduSisaan_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(3);
+    objectDLLPINCode->interfaceFunctionControlEngine();
+
 }
 
 void MainWindow::Timer()

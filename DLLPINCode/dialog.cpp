@@ -12,9 +12,10 @@ Dialog::Dialog(QWidget *parent) :
     timer->setInterval(1000);
     timer->start();
     updateTime();
-    pressEnter = false;
+    pressOk = false;
     ui->lineEditPIN->setMaxLength(4);
-    ui->lineEditPIN->setReadOnly(true);    
+    ui->lineEditPIN->setReadOnly(true);
+    ui->lineEditPIN->setAlignment(Qt::AlignCenter);
 }
 
 Dialog::~Dialog()
@@ -24,13 +25,11 @@ Dialog::~Dialog()
     delete ui;
 }
 
-
 void Dialog::on_button1_clicked()
 {
     ui->lineEditPIN->setText(ui->lineEditPIN->text() + "1");
     pauseTimer();
 }
-
 
 void Dialog::on_button2_clicked()
 {
@@ -86,17 +85,16 @@ void Dialog::on_button0_clicked()
     pauseTimer();
 }
 
-void Dialog::on_ButtonEnter_clicked()
+void Dialog::on_ButtonOk_clicked()
 {
     pauseTimer();
     pincode = ui->lineEditPIN->text();
-    pressEnter = true;
-    returnValue();
+    pressOk = true;
     ui->lineEditPIN->clear();
     this->close();
 }
 
-void Dialog::on_ButtonClear_clicked()
+void Dialog::on_ButtonNollaa_clicked()
 {
     pauseTimer();
     ui->lineEditPIN->clear();
@@ -122,7 +120,7 @@ void Dialog::pauseTimer()
 
 QString Dialog::returnValue()
 {
-    if(pressEnter == true && pincode != NULL)
+    if(pressOk == true && pincode != NULL)
     {
         return pincode;
     }
