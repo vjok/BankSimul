@@ -4,7 +4,6 @@
 DLLSerialPort::DLLSerialPort()
 {
     objectDLLSerialPortEngine = new DLLSerialPortEngine;
-
     QObject::connect(objectDLLSerialPortEngine, &DLLSerialPortEngine::sendString, this, &DLLSerialPort::receiveValue);
 }
 
@@ -19,6 +18,7 @@ void DLLSerialPort::receiveValue(QString returnString) {
 
 void DLLSerialPort::interfaceOpenConnection() {
     objectDLLSerialPortEngine->openConnection();
+
 }
 
 void DLLSerialPort::interfaceCloseConnection() {

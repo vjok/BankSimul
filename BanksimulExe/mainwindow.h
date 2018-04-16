@@ -3,8 +3,10 @@
 #include <QTimer>
 #include <QDebug>
 #include <QMainWindow>
-#include "DLLPINCode/dllpincode.h"
-#include "DLLPINCode/dllpincode_global.h"
+#include "dllpincode.h"
+#include "dllserialport_global.h"
+#include "dllpincode_global.h"
+#include "dllserialport.h"
 
 namespace Ui {
 class MainWindow;
@@ -20,6 +22,7 @@ public:
     void Timer();
     void Timer11();
     void Timer31();
+    void LogAttempt();
 
 private slots:
     void updateTime();
@@ -40,17 +43,19 @@ private slots:
     void on_KirjauduUlos_2_clicked();
     void on_Paavalikko_clicked();
     void on_KirjauduSisaan_clicked();
-    //void Paavalikko();
-
-signals:
+    void checkId(QString CardId);
+    void checkPIN(QString checkedPIN);
 
 private:
     Ui::MainWindow *ui;
     QTimer *timer;
     short time;
     short page;
-    QString PinCode;
+    short attempt = 0;
+    QString PINNI;
+    //QString PinCode;
     DLLPINCode *objectDLLPINCode;
+    DLLSerialPort *objectDLLSerialPort;
 };
 
 #endif // MAINWINDOW_H

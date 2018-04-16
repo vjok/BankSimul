@@ -3,7 +3,7 @@
 DLLSerialPortEngine::DLLSerialPortEngine(QObject *parent) : QObject(parent)
 {
     objectQSerialPort = new QSerialPort(this);
-    objectQSerialPort->setPortName("COM6");
+    objectQSerialPort->setPortName("COM9");
     objectQSerialPort->setBaudRate(QSerialPort::Baud9600);
     objectQSerialPort->setDataBits(QSerialPort::Data8);
     objectQSerialPort->setParity(QSerialPort::NoParity);
@@ -11,7 +11,7 @@ DLLSerialPortEngine::DLLSerialPortEngine(QObject *parent) : QObject(parent)
     objectQSerialPort->setFlowControl(QSerialPort::NoFlowControl);
     //objectQSerialPort->open(QIODevice::ReadOnly);
 
-    connect(objectQSerialPort, SIGNAL(readyRead()), this, SLOT(serialReceived()));
+    QObject::connect(objectQSerialPort, SIGNAL(readyRead()), this, SLOT(serialReceived()));
 }
 
 DLLSerialPortEngine::~DLLSerialPortEngine() {

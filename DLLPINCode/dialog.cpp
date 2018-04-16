@@ -91,7 +91,7 @@ void Dialog::on_ButtonOk_clicked()
     pincode = ui->lineEditPIN->text();
     pressOk = true;
     ui->lineEditPIN->clear();
-    this->close();
+    emit sendPIN(pincode);
 }
 
 void Dialog::on_ButtonNollaa_clicked()

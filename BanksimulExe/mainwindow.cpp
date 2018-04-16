@@ -10,7 +10,11 @@ MainWindow::MainWindow(QWidget *parent) :
     timer = new QTimer(this);
     Timer();
     timer->stop();
+    objectDLLSerialPort = new DLLSerialPort;
     objectDLLPINCode = new DLLPINCode;
+    QObject::connect(objectDLLSerialPort, &DLLSerialPort::returnValue, this, &MainWindow::checkId);
+    QObject::connect(objectDLLPINCode, &DLLPINCode::returnPIN, this, &MainWindow::checkPIN);
+    objectDLLSerialPort->interfaceOpenConnection();
 }
 
 MainWindow::~MainWindow()
@@ -28,6 +32,48 @@ void MainWindow::on_KirjauduSisaan_clicked()
     ui->stackedWidget->setCurrentIndex(3);
     objectDLLPINCode->interfaceFunctionControlEngine();
 
+}
+
+void MainWindow::checkId(QString CardId)
+{
+    // Here be sql queries
+    // result = objectDLLSql->checkCardID(CardID);
+    // if (result == true)
+    //    open Pin code dialog
+    qDebug() << CardId;
+    if(CardId == "0A0079E7CA")
+    {
+        objectDLLPINCode->interfaceFunctionControlEngine();
+        LogAttempt();
+    }
+}
+
+void MainWindow::checkPIN(QString checkedPIN)
+{
+    qDebug() << checkedPIN;
+    checkedPIN = PINNI;
+}
+
+void MainWindow::LogAttempt()
+{
+    while(attempt != 3)
+    {
+        objectDLLPINCode->interfaceFunctionControlEngine();
+        if(PINNI == "1231")
+        {
+            qDebug() << "Tervetuloa!";
+            objectDLLPINCode->interfaceFunctionCloseDialog();
+            ui->stackedWidget->setCurrentIndex(6);
+            this->close();
+            break;
+            }
+        else
+        {
+            qDebug() << "Väärä tunnusluku.";
+            attempt++;
+        }
+    }
+    qDebug() << "KORTTI LUKITTU!";
 }
 
 void MainWindow::Timer()

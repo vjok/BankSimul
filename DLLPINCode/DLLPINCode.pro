@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += widgets
+QT       += widgets serialport
 
 TARGET = DLLPINCode
 TEMPLATE = lib

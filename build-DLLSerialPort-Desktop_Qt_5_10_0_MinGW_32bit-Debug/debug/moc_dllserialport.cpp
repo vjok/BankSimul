@@ -1,16 +1,16 @@
 /****************************************************************************
-** Meta object code from reading C++ file 'dllpincode.h'
+** Meta object code from reading C++ file 'dllserialport.h'
 **
 ** Created by: The Qt Meta Object Compiler version 67 (Qt 5.10.0)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
-#include "../../DLLPINCode/dllpincode.h"
+#include "../../DLLSerialPort/dllserialport.h"
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)
-#error "The header file 'dllpincode.h' doesn't include <QObject>."
+#error "The header file 'dllserialport.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 67
 #error "This file was generated using the moc from 5.10.0. It"
 #error "cannot be used with the include files from this version of Qt."
@@ -20,28 +20,28 @@
 QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
-struct qt_meta_stringdata_DLLPINCode_t {
+struct qt_meta_stringdata_DLLSerialPort_t {
     QByteArrayData data[4];
-    char stringdata0[33];
+    char stringdata0[40];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
-    qptrdiff(offsetof(qt_meta_stringdata_DLLPINCode_t, stringdata0) + ofs \
+    qptrdiff(offsetof(qt_meta_stringdata_DLLSerialPort_t, stringdata0) + ofs \
         - idx * sizeof(QByteArrayData)) \
     )
-static const qt_meta_stringdata_DLLPINCode_t qt_meta_stringdata_DLLPINCode = {
+static const qt_meta_stringdata_DLLSerialPort_t qt_meta_stringdata_DLLSerialPort = {
     {
-QT_MOC_LITERAL(0, 0, 10), // "DLLPINCode"
-QT_MOC_LITERAL(1, 11, 9), // "returnPIN"
-QT_MOC_LITERAL(2, 21, 0), // ""
-QT_MOC_LITERAL(3, 22, 10) // "receivePIN"
+QT_MOC_LITERAL(0, 0, 13), // "DLLSerialPort"
+QT_MOC_LITERAL(1, 14, 11), // "returnValue"
+QT_MOC_LITERAL(2, 26, 0), // ""
+QT_MOC_LITERAL(3, 27, 12) // "receiveValue"
 
     },
-    "DLLPINCode\0returnPIN\0\0receivePIN"
+    "DLLSerialPort\0returnValue\0\0receiveValue"
 };
 #undef QT_MOC_LITERAL
 
-static const uint qt_meta_data_DLLPINCode[] = {
+static const uint qt_meta_data_DLLSerialPort[] = {
 
  // content:
        7,       // revision
@@ -69,21 +69,21 @@ static const uint qt_meta_data_DLLPINCode[] = {
        0        // eod
 };
 
-void DLLPINCode::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+void DLLSerialPort::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
     if (_c == QMetaObject::InvokeMetaMethod) {
-        DLLPINCode *_t = static_cast<DLLPINCode *>(_o);
+        DLLSerialPort *_t = static_cast<DLLSerialPort *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
-        case 0: _t->returnPIN((*reinterpret_cast< QString(*)>(_a[1]))); break;
-        case 1: _t->receivePIN((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 0: _t->returnValue((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 1: _t->receiveValue((*reinterpret_cast< QString(*)>(_a[1]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
         int *result = reinterpret_cast<int *>(_a[0]);
         {
-            typedef void (DLLPINCode::*_t)(QString );
-            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&DLLPINCode::returnPIN)) {
+            typedef void (DLLSerialPort::*_t)(QString );
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&DLLSerialPort::returnValue)) {
                 *result = 0;
                 return;
             }
@@ -91,28 +91,28 @@ void DLLPINCode::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
     }
 }
 
-const QMetaObject DLLPINCode::staticMetaObject = {
-    { &QWidget::staticMetaObject, qt_meta_stringdata_DLLPINCode.data,
-      qt_meta_data_DLLPINCode,  qt_static_metacall, nullptr, nullptr}
+const QMetaObject DLLSerialPort::staticMetaObject = {
+    { &QObject::staticMetaObject, qt_meta_stringdata_DLLSerialPort.data,
+      qt_meta_data_DLLSerialPort,  qt_static_metacall, nullptr, nullptr}
 };
 
 
-const QMetaObject *DLLPINCode::metaObject() const
+const QMetaObject *DLLSerialPort::metaObject() const
 {
     return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
 }
 
-void *DLLPINCode::qt_metacast(const char *_clname)
+void *DLLSerialPort::qt_metacast(const char *_clname)
 {
     if (!_clname) return nullptr;
-    if (!strcmp(_clname, qt_meta_stringdata_DLLPINCode.stringdata0))
+    if (!strcmp(_clname, qt_meta_stringdata_DLLSerialPort.stringdata0))
         return static_cast<void*>(this);
-    return QWidget::qt_metacast(_clname);
+    return QObject::qt_metacast(_clname);
 }
 
-int DLLPINCode::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+int DLLSerialPort::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
-    _id = QWidget::qt_metacall(_c, _id, _a);
+    _id = QObject::qt_metacall(_c, _id, _a);
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
@@ -128,7 +128,7 @@ int DLLPINCode::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 }
 
 // SIGNAL 0
-void DLLPINCode::returnPIN(QString _t1)
+void DLLSerialPort::returnValue(QString _t1)
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
     QMetaObject::activate(this, &staticMetaObject, 0, _a);

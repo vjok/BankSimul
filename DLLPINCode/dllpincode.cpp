@@ -1,14 +1,33 @@
 #include "dllpincode.h"
 
-void DLLPINCode::interfaceFunctionControlEngine()
+DLLPINCode::DLLPINCode()
 {
     objectDialog = new Dialog;
-    objectDialog->showFullScreen();
+    QObject::connect(objectDialog, &Dialog::sendPIN, this, &DLLPINCode::receivePIN);
+}
+
+void DLLPINCode::interfaceFunctionControlEngine()
+{
+    objectDialog->show();
     objectDialog->exec();
 }
 
 QString DLLPINCode::interfaceFunctionReturnPIN()
 {
-    PinToReturn = objectDialog->returnValue();
-    return PinToReturn;
+    PINToReturn = objectDialog->returnValue();
+    return PINToReturn;
 }
+
+void DLLPINCode::interfaceFunctionCloseDialog()
+{
+    objectDialog->close();
+}
+
+void DLLPINCode::receivePIN(QString receivedPIN)
+{
+    emit returnPIN(receivedPIN);
+}
+
+
+
+

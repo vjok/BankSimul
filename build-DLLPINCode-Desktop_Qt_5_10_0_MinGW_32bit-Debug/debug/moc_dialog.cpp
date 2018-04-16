@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_Dialog_t {
-    QByteArrayData data[15];
-    char stringdata0[253];
+    QByteArrayData data[16];
+    char stringdata0[261];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -32,23 +32,24 @@ struct qt_meta_stringdata_Dialog_t {
 static const qt_meta_stringdata_Dialog_t qt_meta_stringdata_Dialog = {
     {
 QT_MOC_LITERAL(0, 0, 6), // "Dialog"
-QT_MOC_LITERAL(1, 7, 18), // "on_button1_clicked"
-QT_MOC_LITERAL(2, 26, 0), // ""
-QT_MOC_LITERAL(3, 27, 18), // "on_button2_clicked"
-QT_MOC_LITERAL(4, 46, 18), // "on_button3_clicked"
-QT_MOC_LITERAL(5, 65, 18), // "on_button4_clicked"
-QT_MOC_LITERAL(6, 84, 18), // "on_button5_clicked"
-QT_MOC_LITERAL(7, 103, 18), // "on_button6_clicked"
-QT_MOC_LITERAL(8, 122, 18), // "on_button7_clicked"
-QT_MOC_LITERAL(9, 141, 18), // "on_button8_clicked"
-QT_MOC_LITERAL(10, 160, 18), // "on_button9_clicked"
-QT_MOC_LITERAL(11, 179, 18), // "on_button0_clicked"
-QT_MOC_LITERAL(12, 198, 19), // "on_ButtonOk_clicked"
-QT_MOC_LITERAL(13, 218, 23), // "on_ButtonNollaa_clicked"
-QT_MOC_LITERAL(14, 242, 10) // "updateTime"
+QT_MOC_LITERAL(1, 7, 7), // "sendPIN"
+QT_MOC_LITERAL(2, 15, 0), // ""
+QT_MOC_LITERAL(3, 16, 18), // "on_button1_clicked"
+QT_MOC_LITERAL(4, 35, 18), // "on_button2_clicked"
+QT_MOC_LITERAL(5, 54, 18), // "on_button3_clicked"
+QT_MOC_LITERAL(6, 73, 18), // "on_button4_clicked"
+QT_MOC_LITERAL(7, 92, 18), // "on_button5_clicked"
+QT_MOC_LITERAL(8, 111, 18), // "on_button6_clicked"
+QT_MOC_LITERAL(9, 130, 18), // "on_button7_clicked"
+QT_MOC_LITERAL(10, 149, 18), // "on_button8_clicked"
+QT_MOC_LITERAL(11, 168, 18), // "on_button9_clicked"
+QT_MOC_LITERAL(12, 187, 18), // "on_button0_clicked"
+QT_MOC_LITERAL(13, 206, 19), // "on_ButtonOk_clicked"
+QT_MOC_LITERAL(14, 226, 23), // "on_ButtonNollaa_clicked"
+QT_MOC_LITERAL(15, 250, 10) // "updateTime"
 
     },
-    "Dialog\0on_button1_clicked\0\0"
+    "Dialog\0sendPIN\0\0on_button1_clicked\0"
     "on_button2_clicked\0on_button3_clicked\0"
     "on_button4_clicked\0on_button5_clicked\0"
     "on_button6_clicked\0on_button7_clicked\0"
@@ -64,27 +65,33 @@ static const uint qt_meta_data_Dialog[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-      13,   14, // methods
+      14,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       0,       // signalCount
+       1,       // signalCount
+
+ // signals: name, argc, parameters, tag, flags
+       1,    1,   84,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       1,    0,   79,    2, 0x08 /* Private */,
-       3,    0,   80,    2, 0x08 /* Private */,
-       4,    0,   81,    2, 0x08 /* Private */,
-       5,    0,   82,    2, 0x08 /* Private */,
-       6,    0,   83,    2, 0x08 /* Private */,
-       7,    0,   84,    2, 0x08 /* Private */,
-       8,    0,   85,    2, 0x08 /* Private */,
-       9,    0,   86,    2, 0x08 /* Private */,
-      10,    0,   87,    2, 0x08 /* Private */,
-      11,    0,   88,    2, 0x08 /* Private */,
-      12,    0,   89,    2, 0x08 /* Private */,
-      13,    0,   90,    2, 0x08 /* Private */,
-      14,    0,   91,    2, 0x08 /* Private */,
+       3,    0,   87,    2, 0x08 /* Private */,
+       4,    0,   88,    2, 0x08 /* Private */,
+       5,    0,   89,    2, 0x08 /* Private */,
+       6,    0,   90,    2, 0x08 /* Private */,
+       7,    0,   91,    2, 0x08 /* Private */,
+       8,    0,   92,    2, 0x08 /* Private */,
+       9,    0,   93,    2, 0x08 /* Private */,
+      10,    0,   94,    2, 0x08 /* Private */,
+      11,    0,   95,    2, 0x08 /* Private */,
+      12,    0,   96,    2, 0x08 /* Private */,
+      13,    0,   97,    2, 0x08 /* Private */,
+      14,    0,   98,    2, 0x08 /* Private */,
+      15,    0,   99,    2, 0x08 /* Private */,
+
+ // signals: parameters
+    QMetaType::Void, QMetaType::QString,    2,
 
  // slots: parameters
     QMetaType::Void,
@@ -110,23 +117,32 @@ void Dialog::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void
         Dialog *_t = static_cast<Dialog *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
-        case 0: _t->on_button1_clicked(); break;
-        case 1: _t->on_button2_clicked(); break;
-        case 2: _t->on_button3_clicked(); break;
-        case 3: _t->on_button4_clicked(); break;
-        case 4: _t->on_button5_clicked(); break;
-        case 5: _t->on_button6_clicked(); break;
-        case 6: _t->on_button7_clicked(); break;
-        case 7: _t->on_button8_clicked(); break;
-        case 8: _t->on_button9_clicked(); break;
-        case 9: _t->on_button0_clicked(); break;
-        case 10: _t->on_ButtonOk_clicked(); break;
-        case 11: _t->on_ButtonNollaa_clicked(); break;
-        case 12: _t->updateTime(); break;
+        case 0: _t->sendPIN((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 1: _t->on_button1_clicked(); break;
+        case 2: _t->on_button2_clicked(); break;
+        case 3: _t->on_button3_clicked(); break;
+        case 4: _t->on_button4_clicked(); break;
+        case 5: _t->on_button5_clicked(); break;
+        case 6: _t->on_button6_clicked(); break;
+        case 7: _t->on_button7_clicked(); break;
+        case 8: _t->on_button8_clicked(); break;
+        case 9: _t->on_button9_clicked(); break;
+        case 10: _t->on_button0_clicked(); break;
+        case 11: _t->on_ButtonOk_clicked(); break;
+        case 12: _t->on_ButtonNollaa_clicked(); break;
+        case 13: _t->updateTime(); break;
         default: ;
         }
+    } else if (_c == QMetaObject::IndexOfMethod) {
+        int *result = reinterpret_cast<int *>(_a[0]);
+        {
+            typedef void (Dialog::*_t)(QString );
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&Dialog::sendPIN)) {
+                *result = 0;
+                return;
+            }
+        }
     }
-    Q_UNUSED(_a);
 }
 
 const QMetaObject Dialog::staticMetaObject = {
@@ -154,15 +170,22 @@ int Dialog::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 13)
+        if (_id < 14)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 13;
+        _id -= 14;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 13)
+        if (_id < 14)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 13;
+        _id -= 14;
     }
     return _id;
+}
+
+// SIGNAL 0
+void Dialog::sendPIN(QString _t1)
+{
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
+    QMetaObject::activate(this, &staticMetaObject, 0, _a);
 }
 QT_WARNING_POP
 QT_END_MOC_NAMESPACE
