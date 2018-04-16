@@ -2,31 +2,33 @@
 
 DLLPINCode::DLLPINCode()
 {
-    objectDialog = new Dialog;
-    QObject::connect(objectDialog, &Dialog::sendPIN, this, &DLLPINCode::receivePIN);
+    objectDLLPinCodeEngine = new DLLPinCodeEngine;
+    QObject::connect(objectDLLPinCodeEngine, &DLLPinCodeEngine::sendPIN, this, &DLLPINCode::receivePIN);
 }
 
 void DLLPINCode::interfaceFunctionControlEngine()
 {
-    objectDialog->show();
-    objectDialog->exec();
-}
-
-QString DLLPINCode::interfaceFunctionReturnPIN()
-{
-    PINToReturn = objectDialog->returnValue();
-    return PINToReturn;
+    objectDLLPinCodeEngine->Timer();
+    objectDLLPinCodeEngine->show();
+    objectDLLPinCodeEngine->exec();
 }
 
 void DLLPINCode::interfaceFunctionCloseDialog()
 {
-    objectDialog->close();
+    objectDLLPinCodeEngine->close();
+}
+
+void DLLPINCode::interfaceFunctionSetLabel(QString newLabel)
+{
+    objectDLLPinCodeEngine->setLabel(newLabel);
 }
 
 void DLLPINCode::receivePIN(QString receivedPIN)
 {
     emit returnPIN(receivedPIN);
 }
+
+
 
 
 

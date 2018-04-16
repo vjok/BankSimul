@@ -8,13 +8,15 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     ui->stackedWidget->setCurrentIndex(0);
     timer = new QTimer(this);
-    Timer();
+    QObject::connect(timer, SIGNAL(timeout()), this, SLOT(updateTime()));
     timer->stop();
     objectDLLSerialPort = new DLLSerialPort;
     objectDLLPINCode = new DLLPINCode;
     QObject::connect(objectDLLSerialPort, &DLLSerialPort::returnValue, this, &MainWindow::checkId);
     QObject::connect(objectDLLPINCode, &DLLPINCode::returnPIN, this, &MainWindow::checkPIN);
     objectDLLSerialPort->interfaceOpenConnection();
+    attempts = 0;
+    loggedIn = false;
 }
 
 MainWindow::~MainWindow()
@@ -29,9 +31,8 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_KirjauduSisaan_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(3);
     objectDLLPINCode->interfaceFunctionControlEngine();
-
+    objectDLLPINCode->interfaceFunctionSetLabel("Syötä Pin-koodi");
 }
 
 void MainWindow::checkId(QString CardId)
@@ -41,48 +42,39 @@ void MainWindow::checkId(QString CardId)
     // if (result == true)
     //    open Pin code dialog
     qDebug() << CardId;
-    if(CardId == "0A0079E7CA")
+    if(CardId == "0A0079E7CA" && !loggedIn)
     {
         objectDLLPINCode->interfaceFunctionControlEngine();
-        LogAttempt();
     }
 }
 
 void MainWindow::checkPIN(QString checkedPIN)
 {
     qDebug() << checkedPIN;
-    checkedPIN = PINNI;
-}
-
-void MainWindow::LogAttempt()
-{
-    while(attempt != 3)
+    qDebug() << attempts;
+    pinkoodi = checkedPIN;
+    if(pinkoodi == "1231")
     {
-        objectDLLPINCode->interfaceFunctionControlEngine();
-        if(PINNI == "1231")
-        {
-            qDebug() << "Tervetuloa!";
-            objectDLLPINCode->interfaceFunctionCloseDialog();
-            ui->stackedWidget->setCurrentIndex(6);
-            this->close();
-            break;
-            }
-        else
-        {
-            qDebug() << "Väärä tunnusluku.";
-            attempt++;
-        }
+        qDebug() << "***Tervetuloa!***";
+        objectDLLPINCode->interfaceFunctionCloseDialog();
+        ui->stackedWidget->setCurrentIndex(2);
+        Timer31();
+        page = 3;
+        attempts = 0;
+        loggedIn = true;
     }
-    qDebug() << "KORTTI LUKITTU!";
-}
+    else
+    {
+        qDebug() << "Väärä tunnusluku.";
+        attempts++;
+        objectDLLPINCode->interfaceFunctionSetLabel("Tunnusluku väärin!\nYritä uudelleen!");
+    }
+    if(attempts == 3)
+    {
+        qDebug() << "****KORTTI LUKITTU!****";
+        objectDLLPINCode->interfaceFunctionCloseDialog();
+    }
 
-void MainWindow::Timer()
-{
-    QObject::connect(timer, SIGNAL(timeout()), this, SLOT(updateTime()));
-    time = 16;
-    timer->setInterval(1000);
-    timer->start();
-    updateTime();
 }
 
 void MainWindow::updateTime()
@@ -91,7 +83,7 @@ void MainWindow::updateTime()
     ui->lcdNumber->display(time);
     timer->setInterval(1000);
     timer->start();
-    if(page == 4 && time == 0)
+    if(page == 3 && time == 0)
     {
         timer->stop();
         ui->stackedWidget->setCurrentIndex(0);
@@ -99,7 +91,7 @@ void MainWindow::updateTime()
     else if(time==0)
     {
         timer->stop();
-        ui->stackedWidget->setCurrentIndex(3);
+        ui->stackedWidget->setCurrentIndex(2);
         page = 4;
         time = 16;
         timer->setInterval(1000);
@@ -127,22 +119,22 @@ void MainWindow::Timer31()
 
 void MainWindow::on_NostaRahaa_clicked()
 {
-    page = 5;
-    ui->stackedWidget->setCurrentIndex(4);
+    page = 3;
+    ui->stackedWidget->setCurrentIndex(3);
     Timer11();
 }
 
 void MainWindow::on_NaytaSaldo_clicked()
 {
-    page = 8;
-    ui->stackedWidget->setCurrentIndex(7);
+    page = 3;
+    ui->stackedWidget->setCurrentIndex(6);
     Timer11();
 }
 
 void MainWindow::on_SelaaTili_clicked()
 {
-    page = 7;
-    ui->stackedWidget->setCurrentIndex(6);
+    page = 3;
+    ui->stackedWidget->setCurrentIndex(5);
     Timer11();
 }
 
@@ -154,71 +146,71 @@ void MainWindow::on_KirjauduUlos_clicked()
 
 void MainWindow::on_Nosto20e_clicked()
 {
-    page = 4;
-    ui->stackedWidget->setCurrentIndex(5);
+    page = 3;
+    ui->stackedWidget->setCurrentIndex(4);
     Timer11();
 }
 
 void MainWindow::on_Nosto40e_clicked()
 {
-    page = 4;
-    ui->stackedWidget->setCurrentIndex(5);
+    page = 3;
+    ui->stackedWidget->setCurrentIndex(4);
     Timer11();
 }
 
 void MainWindow::on_Nosto60e_clicked()
 {
-    page = 4;
-    ui->stackedWidget->setCurrentIndex(5);
+    page = 3;
+    ui->stackedWidget->setCurrentIndex(4);
     Timer11();
 }
 
 void MainWindow::on_Nosto100e_clicked()
 {
-    page = 4;
-    ui->stackedWidget->setCurrentIndex(5);
+    page = 3;
+    ui->stackedWidget->setCurrentIndex(4);
     Timer11();
 }
 
 void MainWindow::on_Nosto200e_clicked()
 {
-    page = 4;
-    ui->stackedWidget->setCurrentIndex(5);
+    page = 3;
+    ui->stackedWidget->setCurrentIndex(4);
     Timer11();
 }
 
 void MainWindow::on_Nosto500e_clicked()
 {
-    page = 4;
-    ui->stackedWidget->setCurrentIndex(5);
+    page = 3;
+    ui->stackedWidget->setCurrentIndex(4);
     Timer11();
 }
 
 void MainWindow::on_Peruuta_clicked()
 {
-    page = 4;
-    ui->stackedWidget->setCurrentIndex(3);
+    page = 3;
+    ui->stackedWidget->setCurrentIndex(2);
     Timer31();
 }
 
 void MainWindow::on_Jatka_clicked()
 {
-    page = 9;
-    ui->stackedWidget->setCurrentIndex(0);
-    timer->stop();
+    page = 3;
+    ui->stackedWidget->setCurrentIndex(7);
+    Timer11();
 }
 
 void MainWindow::on_Sulje_clicked()
 {
-    page = 4;
-    ui->stackedWidget->setCurrentIndex(3);
+    page = 3;
+    ui->stackedWidget->setCurrentIndex(2);
     Timer31();
 }
 
 void MainWindow::on_Sulje_2_clicked()
 {
-    page = 4;
-    ui->stackedWidget->setCurrentIndex(3);
+    page = 3;
+    ui->stackedWidget->setCurrentIndex(2);
     Timer31();
 }
 
@@ -230,7 +222,7 @@ void MainWindow::on_KirjauduUlos_2_clicked()
 
 void MainWindow::on_Paavalikko_clicked()
 {
-    page = 4;
-    ui->stackedWidget->setCurrentIndex(3);
+    page = 3;
+    ui->stackedWidget->setCurrentIndex(2);
     Timer31();
 }

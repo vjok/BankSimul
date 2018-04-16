@@ -1,25 +1,25 @@
-#ifndef DIALOG_H
-#define DIALOG_H
+#ifndef DLLPINCODEENGINE_H
+#define DLLPINCODEENGINE_H
 #include <QDialog>
 #include <QString>
 #include <QTimer>
 #include <QApplication>
 #include <QDebug>
 
-
 namespace Ui {
 class Dialog;
 }
 
-class Dialog : public QDialog
+class DLLPinCodeEngine : public QDialog
 {
     Q_OBJECT
 
 public:
-    Dialog(QWidget *parent = 0);
-    ~Dialog();
+    DLLPinCodeEngine(QWidget *parent = 0);
+    ~DLLPinCodeEngine();
     void pauseTimer();
-    QString returnValue();
+    void setLabel(QString);
+    void Timer();
 
 private slots:
     void on_button1_clicked();
@@ -37,7 +37,6 @@ private slots:
     void updateTime();
 
 private:
-    bool pressOk;
     short time;
     QTimer *timer;
     QString pincode;
@@ -48,4 +47,4 @@ signals:
 
 };
 
-#endif // DIALOG_H
+#endif // DLLPINCODEENGINE_H

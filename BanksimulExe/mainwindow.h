@@ -4,8 +4,6 @@
 #include <QDebug>
 #include <QMainWindow>
 #include "dllpincode.h"
-#include "dllserialport_global.h"
-#include "dllpincode_global.h"
 #include "dllserialport.h"
 
 namespace Ui {
@@ -22,7 +20,6 @@ public:
     void Timer();
     void Timer11();
     void Timer31();
-    void LogAttempt();
 
 private slots:
     void updateTime();
@@ -51,8 +48,9 @@ private:
     QTimer *timer;
     short time;
     short page;
-    short attempt = 0;
-    QString PINNI;
+    short attempts;
+    QString pinkoodi;
+    bool loggedIn;
     //QString PinCode;
     DLLPINCode *objectDLLPINCode;
     DLLSerialPort *objectDLLSerialPort;

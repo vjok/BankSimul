@@ -1,116 +1,123 @@
-#include "dialog.h"
+#include "dllpincodeengine.h"
 #include "ui_dialog.h"
+#include <QFont>
 
-Dialog::Dialog(QWidget *parent) :
+DLLPinCodeEngine::DLLPinCodeEngine(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Dialog)
 {
     ui->setupUi(this);
     timer = new QTimer(this);
     QObject::connect(timer, SIGNAL(timeout()), this, SLOT(updateTime()));
-    time = 11;
-    timer->setInterval(1000);
-    timer->start();
-    updateTime();
-    pressOk = false;
     ui->lineEditPIN->setMaxLength(4);
     ui->lineEditPIN->setReadOnly(true);
     ui->lineEditPIN->setAlignment(Qt::AlignCenter);
 }
 
-Dialog::~Dialog()
+DLLPinCodeEngine::~DLLPinCodeEngine()
 {  
     delete timer;
-    timer = NULL;
     delete ui;
+    timer = NULL;
+    ui = NULL;
 }
 
-void Dialog::on_button1_clicked()
+void DLLPinCodeEngine::on_button1_clicked()
 {
     ui->lineEditPIN->setText(ui->lineEditPIN->text() + "1");
     pauseTimer();
 }
 
-void Dialog::on_button2_clicked()
+void DLLPinCodeEngine::on_button2_clicked()
 {
     ui->lineEditPIN->setText(ui->lineEditPIN->text() + "2");
     pauseTimer();
 }
 
-void Dialog::on_button3_clicked()
+void DLLPinCodeEngine::on_button3_clicked()
 {
     ui->lineEditPIN->setText(ui->lineEditPIN->text() + "3");
     pauseTimer();
 }
 
-void Dialog::on_button4_clicked()
+void DLLPinCodeEngine::on_button4_clicked()
 {
     ui->lineEditPIN->setText(ui->lineEditPIN->text() + "4");
     pauseTimer();
 }
 
-void Dialog::on_button5_clicked()
+void DLLPinCodeEngine::on_button5_clicked()
 {
     ui->lineEditPIN->setText(ui->lineEditPIN->text() + "5");
     pauseTimer();
 }
 
-void Dialog::on_button6_clicked()
+void DLLPinCodeEngine::on_button6_clicked()
 {
     ui->lineEditPIN->setText(ui->lineEditPIN->text() + "6");
     pauseTimer();
 }
 
-void Dialog::on_button7_clicked()
+void DLLPinCodeEngine::on_button7_clicked()
 {
     ui->lineEditPIN->setText(ui->lineEditPIN->text() + "7");   
     pauseTimer();
 }
 
-void Dialog::on_button8_clicked()
+void DLLPinCodeEngine::on_button8_clicked()
 {
     ui->lineEditPIN->setText(ui->lineEditPIN->text() + "8");
     pauseTimer();
 }
 
-void Dialog::on_button9_clicked()
+void DLLPinCodeEngine::on_button9_clicked()
 {
     ui->lineEditPIN->setText(ui->lineEditPIN->text() + "9");
     pauseTimer();
 }
 
-void Dialog::on_button0_clicked()
+void DLLPinCodeEngine::on_button0_clicked()
 {
     ui->lineEditPIN->setText(ui->lineEditPIN->text() + "0");
     pauseTimer();
 }
 
-void Dialog::on_ButtonOk_clicked()
+void DLLPinCodeEngine::on_ButtonOk_clicked()
 {
     pauseTimer();
     pincode = ui->lineEditPIN->text();
-    pressOk = true;
     ui->lineEditPIN->clear();
     emit sendPIN(pincode);
 }
 
-void Dialog::on_ButtonNollaa_clicked()
+void DLLPinCodeEngine::on_ButtonNollaa_clicked()
 {
     pauseTimer();
     ui->lineEditPIN->clear();
 }
 
-void Dialog::updateTime()
+void DLLPinCodeEngine::updateTime()
 {
     time--;
+    ui->lcdNumber->display(time);
     if (time==0)
     {
         timer->stop();
+        ui->lineEditPIN->clear();
         this->close();
     }
 }
 
-void Dialog::pauseTimer()
+void DLLPinCodeEngine::Timer()
+{
+    timer->stop();
+    time = 11;
+    timer->setInterval(1000);
+    timer->start();
+    updateTime();
+}
+
+void DLLPinCodeEngine::pauseTimer()
 {
     timer->stop();
     timer->start();
@@ -118,14 +125,11 @@ void Dialog::pauseTimer()
     updateTime();
 }
 
-QString Dialog::returnValue()
+void DLLPinCodeEngine::setLabel(QString newLabel)
 {
-    if(pressOk == true && pincode != NULL)
-    {
-        return pincode;
-    }
-    else
-    {
-        return 0;
-    }
+    QFont font = ui->label->font();
+    font.setPointSize(48);
+    ui->label->setAlignment(Qt::AlignCenter);
+    ui->label->setFont(font);
+    ui->label->setText(newLabel);
 }

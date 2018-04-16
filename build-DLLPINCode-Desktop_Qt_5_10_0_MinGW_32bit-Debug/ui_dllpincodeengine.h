@@ -1,13 +1,13 @@
 /********************************************************************************
-** Form generated from reading UI file 'dialog.ui'
+** Form generated from reading UI file 'dllpincodeengine.ui'
 **
 ** Created by: Qt User Interface Compiler version 5.10.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
 
-#ifndef UI_DIALOG_H
-#define UI_DIALOG_H
+#ifndef UI_DLLPINCODEENGINE_H
+#define UI_DLLPINCODEENGINE_H
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QAction>
@@ -506,4 +506,4 @@ namespace Ui {
 
 QT_END_NAMESPACE
 
-#endif // UI_DIALOG_H
+#endif // UI_DLLPINCODEENGINE_H

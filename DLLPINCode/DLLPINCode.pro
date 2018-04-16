@@ -24,12 +24,12 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         dllpincode.cpp \
-    dialog.cpp
+    dllpincodeengine.cpp
 
 HEADERS += \
         dllpincode.h \
-        dllpincode_global.h \  
-    dialog.h
+        dllpincode_global.h \   
+    dllpincodeengine.h
 
 unix {
     target.path = /usr/lib
@@ -37,4 +37,4 @@ unix {
 }
 
 FORMS += \
-    dialog.ui
+    dllpincodeengine.ui

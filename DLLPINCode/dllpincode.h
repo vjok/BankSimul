@@ -3,8 +3,7 @@
 #include <QWidget>
 #include <QDebug>
 #include "dllpincode_global.h"
-#include "dialog.h"
-
+#include "dllpincodeengine.h"
 
 class DLLPINCODESHARED_EXPORT DLLPINCode : public QWidget
 {
@@ -13,12 +12,11 @@ class DLLPINCODESHARED_EXPORT DLLPINCode : public QWidget
 public:
     DLLPINCode();
     void interfaceFunctionControlEngine();
-    QString interfaceFunctionReturnPIN();
     void interfaceFunctionCloseDialog();
+    void interfaceFunctionSetLabel(QString newLabel);
 
 private:
-    QString PINToReturn;
-    Dialog *objectDialog;
+    DLLPinCodeEngine *objectDLLPinCodeEngine;
 
 private slots:
     void receivePIN(QString);
