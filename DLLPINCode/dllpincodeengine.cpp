@@ -2,9 +2,7 @@
 #include "ui_dialog.h"
 #include <QFont>
 
-DLLPinCodeEngine::DLLPinCodeEngine(QWidget *parent) :
-    QDialog(parent),
-    ui(new Ui::Dialog)
+DLLPinCodeEngine::DLLPinCodeEngine(QWidget *parent) : QDialog(parent), ui(new Ui::Dialog)
 {
     ui->setupUi(this);
     timer = new QTimer(this);

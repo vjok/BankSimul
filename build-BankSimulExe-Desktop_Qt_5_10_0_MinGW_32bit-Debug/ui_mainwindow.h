@@ -34,15 +34,14 @@ public:
     QLabel *label_2;
     QLabel *label;
     QWidget *page_2;
-    QWidget *page_3;
     QLabel *label_4;
-    QWidget *page_4;
+    QWidget *page_3;
     QLabel *label_5;
     QPushButton *NostaRahaa;
     QPushButton *NaytaSaldo;
     QPushButton *SelaaTili;
     QPushButton *KirjauduUlos;
-    QWidget *page_5;
+    QWidget *page_4;
     QLabel *label_6;
     QPushButton *Nosto20e;
     QPushButton *Nosto40e;
@@ -51,15 +50,15 @@ public:
     QPushButton *Nosto200e;
     QPushButton *Nosto500e;
     QPushButton *Peruuta;
-    QWidget *page_6;
+    QWidget *page_5;
     QLabel *label_7;
     QPushButton *Jatka;
-    QWidget *page_7;
+    QWidget *page_6;
     QLabel *label_8;
     QLabel *label_9;
     QPushButton *Sulje;
     QPushButton *SeuraavaSivu;
-    QWidget *page_8;
+    QWidget *page_7;
     QLabel *label_11;
     QLabel *label_12;
     QPushButton *Sulje_2;
@@ -76,7 +75,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
-        MainWindow->resize(1082, 1920);
+        MainWindow->resize(1080, 1920);
         QFont font;
         font.setFamily(QStringLiteral("Ebrima"));
         MainWindow->setFont(font);
@@ -85,7 +84,7 @@ public:
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         stackedWidget = new QStackedWidget(centralWidget);
         stackedWidget->setObjectName(QStringLiteral("stackedWidget"));
-        stackedWidget->setGeometry(QRect(0, 60, 1080, 1920));
+        stackedWidget->setGeometry(QRect(-10, 50, 1080, 1920));
         QFont font1;
         font1.setPointSize(9);
         stackedWidget->setFont(font1);
@@ -167,10 +166,7 @@ public:
         stackedWidget->addWidget(page_1);
         page_2 = new QWidget();
         page_2->setObjectName(QStringLiteral("page_2"));
-        stackedWidget->addWidget(page_2);
-        page_3 = new QWidget();
-        page_3->setObjectName(QStringLiteral("page_3"));
-        label_4 = new QLabel(page_3);
+        label_4 = new QLabel(page_2);
         label_4->setObjectName(QStringLiteral("label_4"));
         label_4->setGeometry(QRect(0, 460, 1080, 361));
         sizePolicy.setHeightForWidth(label_4->sizePolicy().hasHeightForWidth());
@@ -190,10 +186,10 @@ public:
         palette2.setBrush(QPalette::Disabled, QPalette::Window, brush1);
         label_4->setPalette(palette2);
         label_4->setFont(font2);
-        stackedWidget->addWidget(page_3);
-        page_4 = new QWidget();
-        page_4->setObjectName(QStringLiteral("page_4"));
-        label_5 = new QLabel(page_4);
+        stackedWidget->addWidget(page_2);
+        page_3 = new QWidget();
+        page_3->setObjectName(QStringLiteral("page_3"));
+        label_5 = new QLabel(page_3);
         label_5->setObjectName(QStringLiteral("label_5"));
         label_5->setGeometry(QRect(-10, 460, 1080, 271));
         sizePolicy.setHeightForWidth(label_5->sizePolicy().hasHeightForWidth());
@@ -218,7 +214,7 @@ public:
         font4.setFamily(QStringLiteral("MS UI Gothic"));
         font4.setPointSize(40);
         label_5->setFont(font4);
-        NostaRahaa = new QPushButton(page_4);
+        NostaRahaa = new QPushButton(page_3);
         NostaRahaa->setObjectName(QStringLiteral("NostaRahaa"));
         NostaRahaa->setGeometry(QRect(30, 690, 491, 281));
         QPalette palette4;
@@ -260,7 +256,7 @@ public:
         NostaRahaa->setMouseTracking(false);
         NostaRahaa->setStyleSheet(QLatin1String("background-color: rgb(33, 0, 100);\n"
 "font: 36pt \"Ebrima\"; "));
-        NaytaSaldo = new QPushButton(page_4);
+        NaytaSaldo = new QPushButton(page_3);
         NaytaSaldo->setObjectName(QStringLiteral("NaytaSaldo"));
         NaytaSaldo->setGeometry(QRect(560, 690, 491, 281));
         QPalette palette5;
@@ -289,7 +285,7 @@ public:
         NaytaSaldo->setMouseTracking(true);
         NaytaSaldo->setStyleSheet(QLatin1String("background-color: rgb(33, 0, 100);\n"
 "font: 36pt \"Ebrima\"; "));
-        SelaaTili = new QPushButton(page_4);
+        SelaaTili = new QPushButton(page_3);
         SelaaTili->setObjectName(QStringLiteral("SelaaTili"));
         SelaaTili->setGeometry(QRect(30, 1010, 491, 281));
         QPalette palette6;
@@ -330,7 +326,7 @@ public:
         SelaaTili->setPalette(palette6);
         SelaaTili->setStyleSheet(QLatin1String("background-color: rgb(33, 0, 100);\n"
 "font: 36pt \"Ebrima\"; "));
-        KirjauduUlos = new QPushButton(page_4);
+        KirjauduUlos = new QPushButton(page_3);
         KirjauduUlos->setObjectName(QStringLiteral("KirjauduUlos"));
         KirjauduUlos->setGeometry(QRect(560, 1010, 491, 281));
         QPalette palette7;
@@ -358,10 +354,10 @@ public:
         KirjauduUlos->setPalette(palette7);
         KirjauduUlos->setStyleSheet(QLatin1String("background-color: rgb(33, 0, 100);\n"
 "font: 36pt \"Ebrima\"; "));
-        stackedWidget->addWidget(page_4);
-        page_5 = new QWidget();
-        page_5->setObjectName(QStringLiteral("page_5"));
-        label_6 = new QLabel(page_5);
+        stackedWidget->addWidget(page_3);
+        page_4 = new QWidget();
+        page_4->setObjectName(QStringLiteral("page_4"));
+        label_6 = new QLabel(page_4);
         label_6->setObjectName(QStringLiteral("label_6"));
         label_6->setGeometry(QRect(0, 460, 1080, 271));
         sizePolicy.setHeightForWidth(label_6->sizePolicy().hasHeightForWidth());
@@ -381,7 +377,7 @@ public:
         palette8.setBrush(QPalette::Disabled, QPalette::Window, brush1);
         label_6->setPalette(palette8);
         label_6->setFont(font2);
-        Nosto20e = new QPushButton(page_5);
+        Nosto20e = new QPushButton(page_4);
         Nosto20e->setObjectName(QStringLiteral("Nosto20e"));
         Nosto20e->setGeometry(QRect(30, 690, 491, 281));
         QPalette palette9;
@@ -409,7 +405,7 @@ public:
         Nosto20e->setPalette(palette9);
         Nosto20e->setStyleSheet(QLatin1String("background-color: rgb(33, 0, 100);\n"
 "font: 36pt \"Ebrima\"; "));
-        Nosto40e = new QPushButton(page_5);
+        Nosto40e = new QPushButton(page_4);
         Nosto40e->setObjectName(QStringLiteral("Nosto40e"));
         Nosto40e->setGeometry(QRect(560, 690, 491, 281));
         QPalette palette10;
@@ -437,7 +433,7 @@ public:
         Nosto40e->setPalette(palette10);
         Nosto40e->setStyleSheet(QLatin1String("background-color: rgb(33, 0, 100);\n"
 "font: 36pt \"Ebrima\"; "));
-        Nosto60e = new QPushButton(page_5);
+        Nosto60e = new QPushButton(page_4);
         Nosto60e->setObjectName(QStringLiteral("Nosto60e"));
         Nosto60e->setGeometry(QRect(30, 1010, 491, 281));
         QPalette palette11;
@@ -465,7 +461,7 @@ public:
         Nosto60e->setPalette(palette11);
         Nosto60e->setStyleSheet(QLatin1String("background-color: rgb(33, 0, 100);\n"
 "font: 36pt \"Ebrima\"; "));
-        Nosto100e = new QPushButton(page_5);
+        Nosto100e = new QPushButton(page_4);
         Nosto100e->setObjectName(QStringLiteral("Nosto100e"));
         Nosto100e->setGeometry(QRect(560, 1010, 491, 281));
         QPalette palette12;
@@ -493,7 +489,7 @@ public:
         Nosto100e->setPalette(palette12);
         Nosto100e->setStyleSheet(QLatin1String("background-color: rgb(33, 0, 100);\n"
 "font: 36pt \"Ebrima\"; "));
-        Nosto200e = new QPushButton(page_5);
+        Nosto200e = new QPushButton(page_4);
         Nosto200e->setObjectName(QStringLiteral("Nosto200e"));
         Nosto200e->setGeometry(QRect(30, 1330, 491, 281));
         QPalette palette13;
@@ -521,7 +517,7 @@ public:
         Nosto200e->setPalette(palette13);
         Nosto200e->setStyleSheet(QLatin1String("background-color: rgb(33, 0, 100);\n"
 "font: 36pt \"Ebrima\"; "));
-        Nosto500e = new QPushButton(page_5);
+        Nosto500e = new QPushButton(page_4);
         Nosto500e->setObjectName(QStringLiteral("Nosto500e"));
         Nosto500e->setGeometry(QRect(560, 1330, 491, 281));
         QPalette palette14;
@@ -549,7 +545,7 @@ public:
         Nosto500e->setPalette(palette14);
         Nosto500e->setStyleSheet(QLatin1String("background-color: rgb(33, 0, 100);\n"
 "font: 36pt \"Ebrima\"; "));
-        Peruuta = new QPushButton(page_5);
+        Peruuta = new QPushButton(page_4);
         Peruuta->setObjectName(QStringLiteral("Peruuta"));
         Peruuta->setGeometry(QRect(30, 1650, 1021, 171));
         QPalette palette15;
@@ -577,10 +573,10 @@ public:
         Peruuta->setPalette(palette15);
         Peruuta->setStyleSheet(QLatin1String("background-color: rgb(33, 0, 100);\n"
 "font: 36pt \"Ebrima\"; "));
-        stackedWidget->addWidget(page_5);
-        page_6 = new QWidget();
-        page_6->setObjectName(QStringLiteral("page_6"));
-        label_7 = new QLabel(page_6);
+        stackedWidget->addWidget(page_4);
+        page_5 = new QWidget();
+        page_5->setObjectName(QStringLiteral("page_5"));
+        label_7 = new QLabel(page_5);
         label_7->setObjectName(QStringLiteral("label_7"));
         label_7->setGeometry(QRect(0, 460, 1080, 271));
         sizePolicy.setHeightForWidth(label_7->sizePolicy().hasHeightForWidth());
@@ -600,7 +596,7 @@ public:
         palette16.setBrush(QPalette::Disabled, QPalette::Window, brush1);
         label_7->setPalette(palette16);
         label_7->setFont(font2);
-        Jatka = new QPushButton(page_6);
+        Jatka = new QPushButton(page_5);
         Jatka->setObjectName(QStringLiteral("Jatka"));
         Jatka->setGeometry(QRect(300, 1010, 491, 281));
         QPalette palette17;
@@ -628,10 +624,10 @@ public:
         Jatka->setPalette(palette17);
         Jatka->setStyleSheet(QLatin1String("background-color: rgb(33, 0, 100);\n"
 "font: 36pt \"Ebrima\"; "));
-        stackedWidget->addWidget(page_6);
-        page_7 = new QWidget();
-        page_7->setObjectName(QStringLiteral("page_7"));
-        label_8 = new QLabel(page_7);
+        stackedWidget->addWidget(page_5);
+        page_6 = new QWidget();
+        page_6->setObjectName(QStringLiteral("page_6"));
+        label_8 = new QLabel(page_6);
         label_8->setObjectName(QStringLiteral("label_8"));
         label_8->setGeometry(QRect(0, 360, 1080, 271));
         sizePolicy.setHeightForWidth(label_8->sizePolicy().hasHeightForWidth());
@@ -651,7 +647,7 @@ public:
         palette18.setBrush(QPalette::Disabled, QPalette::Window, brush1);
         label_8->setPalette(palette18);
         label_8->setFont(font2);
-        label_9 = new QLabel(page_7);
+        label_9 = new QLabel(page_6);
         label_9->setObjectName(QStringLiteral("label_9"));
         label_9->setGeometry(QRect(20, 560, 481, 921));
         sizePolicy.setHeightForWidth(label_9->sizePolicy().hasHeightForWidth());
@@ -673,7 +669,7 @@ public:
         palette19.setBrush(QPalette::Disabled, QPalette::Window, brush1);
         label_9->setPalette(palette19);
         label_9->setFont(font2);
-        Sulje = new QPushButton(page_7);
+        Sulje = new QPushButton(page_6);
         Sulje->setObjectName(QStringLiteral("Sulje"));
         Sulje->setGeometry(QRect(30, 1480, 491, 281));
         QPalette palette20;
@@ -701,7 +697,7 @@ public:
         Sulje->setPalette(palette20);
         Sulje->setStyleSheet(QLatin1String("background-color: rgb(33, 0, 100);\n"
 "font: 36pt \"Ebrima\"; "));
-        SeuraavaSivu = new QPushButton(page_7);
+        SeuraavaSivu = new QPushButton(page_6);
         SeuraavaSivu->setObjectName(QStringLiteral("SeuraavaSivu"));
         SeuraavaSivu->setGeometry(QRect(540, 1480, 491, 281));
         QPalette palette21;
@@ -729,10 +725,10 @@ public:
         SeuraavaSivu->setPalette(palette21);
         SeuraavaSivu->setStyleSheet(QLatin1String("background-color: rgb(33, 0, 100);\n"
 "font: 36pt \"Ebrima\"; "));
-        stackedWidget->addWidget(page_7);
-        page_8 = new QWidget();
-        page_8->setObjectName(QStringLiteral("page_8"));
-        label_11 = new QLabel(page_8);
+        stackedWidget->addWidget(page_6);
+        page_7 = new QWidget();
+        page_7->setObjectName(QStringLiteral("page_7"));
+        label_11 = new QLabel(page_7);
         label_11->setObjectName(QStringLiteral("label_11"));
         label_11->setGeometry(QRect(0, 460, 1080, 271));
         sizePolicy.setHeightForWidth(label_11->sizePolicy().hasHeightForWidth());
@@ -752,7 +748,7 @@ public:
         palette22.setBrush(QPalette::Disabled, QPalette::Window, brush1);
         label_11->setPalette(palette22);
         label_11->setFont(font2);
-        label_12 = new QLabel(page_8);
+        label_12 = new QLabel(page_7);
         label_12->setObjectName(QStringLiteral("label_12"));
         label_12->setGeometry(QRect(330, 680, 441, 551));
         sizePolicy.setHeightForWidth(label_12->sizePolicy().hasHeightForWidth());
@@ -772,7 +768,7 @@ public:
         palette23.setBrush(QPalette::Disabled, QPalette::Window, brush1);
         label_12->setPalette(palette23);
         label_12->setFont(font2);
-        Sulje_2 = new QPushButton(page_8);
+        Sulje_2 = new QPushButton(page_7);
         Sulje_2->setObjectName(QStringLiteral("Sulje_2"));
         Sulje_2->setGeometry(QRect(300, 1480, 491, 281));
         QPalette palette24;
@@ -800,7 +796,7 @@ public:
         Sulje_2->setPalette(palette24);
         Sulje_2->setStyleSheet(QLatin1String("background-color: rgb(33, 0, 100);\n"
 "font: 36pt \"Ebrima\"; "));
-        stackedWidget->addWidget(page_8);
+        stackedWidget->addWidget(page_7);
         page_9 = new QWidget();
         page_9->setObjectName(QStringLiteral("page_9"));
         label_10 = new QLabel(page_9);
@@ -964,7 +960,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(3);
+        stackedWidget->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -975,7 +971,7 @@ public:
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", nullptr));
         label_2->setText(QApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:47pt;\">Tervetuloa pankkiautomaatille! </span></p><p align=\"center\"><span style=\" font-size:47pt;\">Ole hyv\303\244 ja sy\303\266t\303\244 kortti.</span></p></body></html>", nullptr));
         label->setText(QApplication::translate("MainWindow", "<html><head/><body><p>PANKKIAUTOMAATTI</p></body></html>", nullptr));
-        label_4->setText(QApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:48pt;\">Sy\303\266tit tunnusluvun kolme </span></p><p align=\"center\"><span style=\" font-size:48pt;\">kertaa v\303\244\303\244rin.</span></p><p align=\"center\"><span style=\" font-size:48pt;\">Korttisi on lukittu!</span></p></body></html>", nullptr));
+        label_4->setText(QApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:48pt;\">Sy\303\266tit tunnusluvun </span></p><p align=\"center\"><span style=\" font-size:48pt;\">kolme kertaa v\303\244\303\244rin.</span></p><p align=\"center\"><span style=\" font-size:48pt;\">Korttisi on lukittu!</span></p><p align=\"center\"><span style=\" font-size:48pt;\">Ota yhteys pankkiin!</span></p></body></html>", nullptr));
         label_5->setText(QApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:65pt;\">Valitse toiminto</span></p></body></html>", nullptr));
 #ifndef QT_NO_TOOLTIP
         NostaRahaa->setToolTip(QString());

@@ -17,6 +17,7 @@ public:
 
 private slots:
     void receiveValue(QString);
+
 signals:
     void returnValue(QString);
 

@@ -1,6 +1,5 @@
 #ifndef DLLSERIALPORTENGINE_H
 #define DLLSERIALPORTENGINE_H
-
 #include <QObject>
 #include <QSerialPort>
 #include <QString>
@@ -22,6 +21,7 @@ signals:
 
 private slots:
     void serialReceived();
+
 private:
     QSerialPort *objectQSerialPort;
     QByteArray objectQByteArray;

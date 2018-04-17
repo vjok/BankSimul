@@ -4,6 +4,7 @@
 #include <QDebug>
 #include "dllpincode_global.h"
 #include "dllpincodeengine.h"
+#include <QDesktopWidget>
 
 class DLLPINCODESHARED_EXPORT DLLPINCode : public QWidget
 {
@@ -17,6 +18,7 @@ public:
 
 private:
     DLLPinCodeEngine *objectDLLPinCodeEngine;
+    QDesktopWidget *objectDesk;
 
 private slots:
     void receivePIN(QString);
@@ -27,7 +29,3 @@ signals:
 };
 
 #endif // DLLPINCODE_H
-
-
-
-

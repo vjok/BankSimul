@@ -49,7 +49,7 @@ private:
     short time;
     short page;
     short attempts;
-    QString pinkoodi;
+    QString pincode;
     bool loggedIn;
     //QString PinCode;
     DLLPINCode *objectDLLPINCode;

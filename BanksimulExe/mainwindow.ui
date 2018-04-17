@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1082</width>
+    <width>1080</width>
     <height>1920</height>
    </rect>
   </property>
@@ -49,7 +49,7 @@
      <number>15</number>
     </property>
     <property name="currentIndex">
-     <number>5</number>
+     <number>8</number>
     </property>
     <widget class="QWidget" name="page_1">
      <widget class="QLabel" name="label_2">
@@ -367,7 +367,7 @@
         <x>0</x>
         <y>460</y>
         <width>1080</width>
-        <height>361</height>
+        <height>431</height>
        </rect>
       </property>
       <property name="sizePolicy">
@@ -500,7 +500,7 @@
        </font>
       </property>
       <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:48pt;&quot;&gt;Syötit tunnusluvun kolme &lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:48pt;&quot;&gt;kertaa väärin.&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:48pt;&quot;&gt;Korttisi on lukittu!&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:48pt;&quot;&gt;Syötit tunnusluvun &lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:48pt;&quot;&gt;kolme kertaa väärin.&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:48pt;&quot;&gt;Korttisi on lukittu!&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:48pt;&quot;&gt;Ota yhteys pankkiin!&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
      </widget>
     </widget>
@@ -4858,7 +4858,7 @@ font: 36pt &quot;Ebrima&quot;; </string>
       </property>
      </widget>
     </widget>
-    <widget class="QWidget" name="page_9">
+    <widget class="QWidget" name="page_8">
      <widget class="QLabel" name="label_10">
       <property name="geometry">
        <rect>
@@ -5002,6 +5002,7 @@ font: 36pt &quot;Ebrima&quot;; </string>
       </property>
      </widget>
     </widget>
+    <widget class="QWidget" name="page_9"/>
    </widget>
    <widget class="QLabel" name="banksimul">
     <property name="geometry">

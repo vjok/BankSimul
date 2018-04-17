@@ -1,7 +1,9 @@
 #include "dllpincode.h"
+#include <QDesktopWidget>
 
 DLLPINCode::DLLPINCode()
 {
+    objectDesk = new QDesktopWidget;
     objectDLLPinCodeEngine = new DLLPinCodeEngine;
     QObject::connect(objectDLLPinCodeEngine, &DLLPinCodeEngine::sendPIN, this, &DLLPINCode::receivePIN);
 }
@@ -9,7 +11,8 @@ DLLPINCode::DLLPINCode()
 void DLLPINCode::interfaceFunctionControlEngine()
 {
     objectDLLPinCodeEngine->Timer();
-    objectDLLPinCodeEngine->show();
+    objectDLLPinCodeEngine->setGeometry(objectDesk->screenGeometry(0));
+    objectDLLPinCodeEngine->showFullScreen();
     objectDLLPinCodeEngine->exec();
 }
 
@@ -27,9 +30,3 @@ void DLLPINCode::receivePIN(QString receivedPIN)
 {
     emit returnPIN(receivedPIN);
 }
-
-
-
-
-
-

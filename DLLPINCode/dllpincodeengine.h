@@ -44,7 +44,6 @@ private:
 
 signals:
     void sendPIN(QString);
-
 };
 
 #endif // DLLPINCODEENGINE_H
