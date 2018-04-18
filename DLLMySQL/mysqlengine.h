@@ -54,6 +54,8 @@ public:
         QString datetime;
     } events;
 
+    MySQLEngine *objectDLLMySQL;
+
 };
 
 #endif // MYSQLENGINE_H

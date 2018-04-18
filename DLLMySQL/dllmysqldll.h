@@ -3,10 +3,11 @@
 #include <QDebug>
 #include <QtSql/QSqlDatabase>
 #include <QtSql/QSqlQuery>
+
 #include "dllmysqldll_global.h"
 #include <mysqlengine.h>
 
-class DLLMYSQLDLLSHARED_EXPORT DLLMySQLDLL : public QObject
+class DLLMYSQLDLLSHARED_EXPORT DLLMySQLDLL
 {
 
 public:
