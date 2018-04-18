@@ -73,8 +73,8 @@ void MySQLEngine::lockCard()
 // OK
 {
     QSqlQuery query;
-    query.prepare("UPDATE Kortti SET lukitus = 1 WHERE idKortti = 1");
-    //query.addBindValue(this->cardData.id);
+    query.prepare("UPDATE Kortti SET lukitus = 1 WHERE idKortti = ?");
+    query.addBindValue(this->cardData.id);
     query.exec();
 }
 
@@ -99,8 +99,8 @@ void MySQLEngine::accountEvent()
 //aikalailla OK
 {
     QSqlQuery query;
-    query.prepare("SELECT * FROM Tilitapahtumat WHERE idTili = 1 ORDER BY idTapahtuma DESC LIMIT ? OFFSET ?");
-    //query.addBindValue(this->accountData.id);
+    query.prepare("SELECT * FROM Tilitapahtumat WHERE idTili = ? ORDER BY idTapahtuma DESC LIMIT ? OFFSET ?");
+    query.addBindValue(this->accountData.id);
     query.addBindValue(count);
     query.addBindValue(interval);
     query.exec();
@@ -161,8 +161,8 @@ void MySQLEngine::cashWithdrawal(double maara)
     QSqlQuery updatedAmount;
     QSqlQuery event;
 
-    query.prepare("SELECT saldo FROM Tili WHERE idTili = 4");
-    //query.addBindValue(this->accountData.id);
+    query.prepare("SELECT saldo FROM Tili WHERE idTili = ?");
+    query.addBindValue(this->accountData.id);
     query.exec();
     while (query.next())
     {
@@ -176,12 +176,12 @@ void MySQLEngine::cashWithdrawal(double maara)
     }
 
     // jos mainos skipataan
-    updatedAmount.prepare("UPDATE Tili SET saldo = ? WHERE idTili = 4");
+    updatedAmount.prepare("UPDATE Tili SET saldo = ? WHERE idTili = ?");
     updatedAmount.addBindValue(maara);
-    //query.addBindValue(this->accountData.id);
+    query.addBindValue(this->accountData.id);
     updatedAmount.exec();
-    event.prepare("INSERT INTO Tilitapahtumat (idTili, saaja, selite, maara) VALUES(4, BANKSIMUL, MAINOSMAKSU, ?)");
-    //event.addBindValue(this->accountData.id);
+    event.prepare("INSERT INTO Tilitapahtumat (idTili, saaja, selite, maara) VALUES(?, BANKSIMUL, MAINOSMAKSU, ?)");
+    event.addBindValue(this->accountData.id);
     event.addBindValue(maara);
     event.exec();
 
