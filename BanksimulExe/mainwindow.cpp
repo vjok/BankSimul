@@ -10,11 +10,14 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     timer->stop();
     objectDLLSerialPort = new DLLSerialPort;
     objectDLLPINCode = new DLLPINCode;
+    objectDLLMySQLDLL = new DLLMySQLDLL;
     QObject::connect(objectDLLSerialPort, &DLLSerialPort::returnValue, this, &MainWindow::checkId);
     QObject::connect(objectDLLPINCode, &DLLPINCode::returnPIN, this, &MainWindow::checkPIN);
     objectDLLSerialPort->interfaceOpenConnection();
     attempts = 0;
     loggedIn = false;
+    objectDLLMySQLDLL->interfaceFunctionStartConnection();
+
 }
 
 MainWindow::~MainWindow()
@@ -55,6 +58,8 @@ void MainWindow::checkId(QString CardId)
 
 void MainWindow::checkPIN(QString checkedPIN)
 {
+    objectDLLMySQLDLL->interfaceFunctionLogIn();
+
     qDebug() << checkedPIN;
     qDebug() << attempts;
     pincode = checkedPIN;

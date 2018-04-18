@@ -5,6 +5,7 @@
 #include <QMainWindow>
 #include "dllpincode.h"
 #include "dllserialport.h"
+#include "dllmysqldll.h"
 
 namespace Ui {
 class MainWindow;
@@ -54,6 +55,7 @@ private:
     //QString PinCode;
     DLLPINCode *objectDLLPINCode;
     DLLSerialPort *objectDLLSerialPort;
+    DLLMySQLDLL *objectDLLMySQLDLL;
 };
 
 #endif // MAINWINDOW_H

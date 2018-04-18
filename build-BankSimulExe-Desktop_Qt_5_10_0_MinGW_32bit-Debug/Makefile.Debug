@@ -14,10 +14,10 @@ CXX           = g++
 DEFINES       = -DUNICODE -D_UNICODE -DQT_DEPRECATED_WARNINGS -DQT_QML_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_SERIALPORT_LIB -DQT_CORE_LIB -DQT_NEEDS_QMAIN
 CFLAGS        = -fno-keep-inline-dllexport -g -Wextra -Wall -W $(DEFINES)
 CXXFLAGS      = -fno-keep-inline-dllexport -g -std=gnu++11 -Wextra -Wall -W -fexceptions -mthreads $(DEFINES)
-INCPATH       = -I..\BankSimulExe -I. -I..\DLLPINCode -I..\DLLSerialPort -IC:\Qt\5.10.0\mingw53_32\include -IC:\Qt\5.10.0\mingw53_32\include\QtWidgets -IC:\Qt\5.10.0\mingw53_32\include\QtGui -IC:\Qt\5.10.0\mingw53_32\include\QtANGLE -IC:\Qt\5.10.0\mingw53_32\include\QtSerialPort -IC:\Qt\5.10.0\mingw53_32\include\QtCore -Idebug -I. -IC:\Qt\5.10.0\mingw53_32\mkspecs\win32-g++ 
+INCPATH       = -I..\BankSimulExe -I. -I..\DLLPINCode -I..\DLLSerialPort -I..\DLLMySQL -IC:\Qt\5.10.0\mingw53_32\include -IC:\Qt\5.10.0\mingw53_32\include\QtWidgets -IC:\Qt\5.10.0\mingw53_32\include\QtGui -IC:\Qt\5.10.0\mingw53_32\include\QtANGLE -IC:\Qt\5.10.0\mingw53_32\include\QtSerialPort -IC:\Qt\5.10.0\mingw53_32\include\QtCore -Idebug -I. -IC:\Qt\5.10.0\mingw53_32\mkspecs\win32-g++ 
 LINKER      =        g++
 LFLAGS        =        -Wl,-subsystem,windows -mthreads
-LIBS        =        -lmingw32 -LC:\Qt\5.10.0\mingw53_32\lib C:\Qt\5.10.0\mingw53_32\lib\libqtmaind.a -LC:\utils\my_sql\my_sql\lib -LC:\utils\postgresql\pgsql\lib -lshell32 -L"C:\Users\Admin\OneDrive - Oulun ammattikorkeakoulu\OhjelmistokehitysProjekti\BanksimulExe_12_04_2018\build-DLLPINCode-Desktop_Qt_5_10_0_MinGW_32bit-Debug\debug" -lDLLPINCode -L"C:\Users\Admin\OneDrive - Oulun ammattikorkeakoulu\OhjelmistokehitysProjekti\BanksimulExe_12_04_2018\build-DLLSerialPort-Desktop_Qt_5_10_0_MinGW_32bit-Debug\debug" -lDLLSerialPort C:\Qt\5.10.0\mingw53_32\lib\libQt5Widgetsd.a C:\Qt\5.10.0\mingw53_32\lib\libQt5Guid.a C:\Qt\5.10.0\mingw53_32\lib\libQt5SerialPortd.a C:\Qt\5.10.0\mingw53_32\lib\libQt5Cored.a 
+LIBS        =        -lmingw32 -LC:\Qt\5.10.0\mingw53_32\lib C:\Qt\5.10.0\mingw53_32\lib\libqtmaind.a -LC:\utils\my_sql\my_sql\lib -LC:\utils\postgresql\pgsql\lib -lshell32 -L"C:\Users\toni_\OneDrive - Oulun ammattikorkeakoulu\OhjelmistokehitysProjekti\BanksimulExe_18_04_2018\BankSimul\build-DLLPINCode-Desktop_Qt_5_10_0_MinGW_32bit-Debug\debug" -lDLLPINCode -L"C:\Users\toni_\OneDrive - Oulun ammattikorkeakoulu\OhjelmistokehitysProjekti\BanksimulExe_18_04_2018\BankSimul\build-DLLSerialPort-Desktop_Qt_5_10_0_MinGW_32bit-Debug\debug" -lDLLSerialPort -L"C:\Users\toni_\OneDrive - Oulun ammattikorkeakoulu\OhjelmistokehitysProjekti\BanksimulExe_18_04_2018\BankSimul\build-DLLMySQLDLL-Desktop_Qt_5_10_0_MinGW_32bit-Debug\debug" -lDLLMySQLDLL C:\Qt\5.10.0\mingw53_32\lib\libQt5Widgetsd.a C:\Qt\5.10.0\mingw53_32\lib\libQt5Guid.a C:\Qt\5.10.0\mingw53_32\lib\libQt5SerialPortd.a C:\Qt\5.10.0\mingw53_32\lib\libQt5Cored.a 
 QMAKE         = C:\Qt\5.10.0\mingw53_32\bin\qmake.exe
 IDC           = idc
 IDL           = midl
@@ -227,6 +227,7 @@ debug/moc_mainwindow.cpp: C:/Qt/5.10.0/mingw53_32/include/QtCore/QTimer \
 		C:/Qt/5.10.0/mingw53_32/include/QtWidgets/qdesktopwidget.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtGui/qguiapplication.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtGui/qinputmethod.h \
+		C:/Qt/5.10.0/mingw53_32/include/QtWidgets/QDesktopWidget \
 		../DLLSerialPort/dllserialport.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/QObject \
 		../DLLSerialPort/dllserialport_global.h \
@@ -240,7 +241,7 @@ debug/moc_mainwindow.cpp: C:/Qt/5.10.0/mingw53_32/include/QtCore/QTimer \
 		../BankSimulExe/mainwindow.h \
 		debug/moc_predefs.h \
 		C:/Qt/5.10.0/mingw53_32/bin/moc.exe
-	C:\Qt\5.10.0\mingw53_32\bin\moc.exe $(DEFINES) --include debug/moc_predefs.h -IC:/Qt/5.10.0/mingw53_32/mkspecs/win32-g++ -I"C:/Users/Admin/OneDrive - Oulun ammattikorkeakoulu/OhjelmistokehitysProjekti/BanksimulExe_12_04_2018/BankSimulExe" -I"C:/Users/Admin/OneDrive - Oulun ammattikorkeakoulu/OhjelmistokehitysProjekti/BanksimulExe_12_04_2018/DLLPINCode" -I"C:/Users/Admin/OneDrive - Oulun ammattikorkeakoulu/OhjelmistokehitysProjekti/BanksimulExe_12_04_2018/DLLSerialPort" -IC:/Qt/5.10.0/mingw53_32/include -IC:/Qt/5.10.0/mingw53_32/include/QtWidgets -IC:/Qt/5.10.0/mingw53_32/include/QtGui -IC:/Qt/5.10.0/mingw53_32/include/QtANGLE -IC:/Qt/5.10.0/mingw53_32/include/QtSerialPort -IC:/Qt/5.10.0/mingw53_32/include/QtCore -I. -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++ -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward ..\BankSimulExe\mainwindow.h -o debug\moc_mainwindow.cpp
+	C:\Qt\5.10.0\mingw53_32\bin\moc.exe $(DEFINES) --include debug/moc_predefs.h -IC:/Qt/5.10.0/mingw53_32/mkspecs/win32-g++ -I"C:/Users/toni_/OneDrive - Oulun ammattikorkeakoulu/OhjelmistokehitysProjekti/BanksimulExe_18_04_2018/BankSimul/BankSimulExe" -I"C:/Users/toni_/OneDrive - Oulun ammattikorkeakoulu/OhjelmistokehitysProjekti/BanksimulExe_18_04_2018/BankSimul/DLLPINCode" -I"C:/Users/toni_/OneDrive - Oulun ammattikorkeakoulu/OhjelmistokehitysProjekti/BanksimulExe_18_04_2018/BankSimul/DLLSerialPort" -I"C:/Users/toni_/OneDrive - Oulun ammattikorkeakoulu/OhjelmistokehitysProjekti/BanksimulExe_18_04_2018/BankSimul/DLLMySQL" -IC:/Qt/5.10.0/mingw53_32/include -IC:/Qt/5.10.0/mingw53_32/include/QtWidgets -IC:/Qt/5.10.0/mingw53_32/include/QtGui -IC:/Qt/5.10.0/mingw53_32/include/QtANGLE -IC:/Qt/5.10.0/mingw53_32/include/QtSerialPort -IC:/Qt/5.10.0/mingw53_32/include/QtCore -I. -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++ -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward ..\BankSimulExe\mainwindow.h -o debug\moc_mainwindow.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
@@ -390,6 +391,7 @@ debug/main.o: ../BankSimulExe/main.cpp ../BankSimulExe/mainwindow.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtWidgets/qdesktopwidget.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtGui/qguiapplication.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtGui/qinputmethod.h \
+		C:/Qt/5.10.0/mingw53_32/include/QtWidgets/QDesktopWidget \
 		../DLLSerialPort/dllserialport.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/QObject \
 		../DLLSerialPort/dllserialport_global.h \
@@ -399,7 +401,14 @@ debug/main.o: ../BankSimulExe/main.cpp ../BankSimulExe/mainwindow.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtSerialPort/qserialportglobal.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/QByteArray \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/QTextCodec \
-		C:/Qt/5.10.0/mingw53_32/include/QtCore/qtextcodec.h
+		C:/Qt/5.10.0/mingw53_32/include/QtCore/qtextcodec.h \
+		C:/Qt/5.10.0/mingw53_32/include/QtGui/QWindow \
+		C:/Qt/5.10.0/mingw53_32/include/QtGui/qwindow.h \
+		C:/Qt/5.10.0/mingw53_32/include/QtCore/QEvent \
+		C:/Qt/5.10.0/mingw53_32/include/QtCore/QMargins \
+		C:/Qt/5.10.0/mingw53_32/include/QtCore/QRect \
+		C:/Qt/5.10.0/mingw53_32/include/QtGui/qsurface.h \
+		C:/Qt/5.10.0/mingw53_32/include/QtGui/qsurfaceformat.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\main.o ..\BankSimulExe\main.cpp
 
 debug/mainwindow.o: ../BankSimulExe/mainwindow.cpp ../BankSimulExe/mainwindow.h \
@@ -527,6 +536,7 @@ debug/mainwindow.o: ../BankSimulExe/mainwindow.cpp ../BankSimulExe/mainwindow.h 
 		C:/Qt/5.10.0/mingw53_32/include/QtWidgets/qdesktopwidget.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtGui/qguiapplication.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtGui/qinputmethod.h \
+		C:/Qt/5.10.0/mingw53_32/include/QtWidgets/QDesktopWidget \
 		../DLLSerialPort/dllserialport.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/QObject \
 		../DLLSerialPort/dllserialport_global.h \

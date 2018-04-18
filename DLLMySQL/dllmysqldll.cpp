@@ -5,12 +5,6 @@ DLLMySQLDLL::DLLMySQLDLL()
     objectMySQLEngine = new MySQLEngine;
 }
 
-DLLMySQLDLL::~DLLMySQLDLL()
-{
-    delete objectMySQLEngine;
-    objectMySQLEngine = NULL;
-}
-
 bool DLLMySQLDLL::interfaceFunctionStartConnection()
 {
     objectMySQLEngine->StartConnection();

@@ -2,13 +2,8 @@
 
 MySQLEngine::MySQLEngine()
 {
-    objectDLLMySQL = new MySQLEngine;
 }
 
-MySQLEngine::~MySQLEngine()
-{
-
-}
 
 bool MySQLEngine::StartConnection()
 {

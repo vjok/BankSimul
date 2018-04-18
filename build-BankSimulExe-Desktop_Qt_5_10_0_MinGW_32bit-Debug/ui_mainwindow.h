@@ -62,8 +62,9 @@ public:
     QLabel *label_11;
     QLabel *label_12;
     QPushButton *Sulje_2;
-    QWidget *page_9;
+    QWidget *page_8;
     QLabel *label_10;
+    QWidget *page_9;
     QLabel *banksimul;
     QToolButton *KirjauduUlos_2;
     QToolButton *Paavalikko;
@@ -168,7 +169,7 @@ public:
         page_2->setObjectName(QStringLiteral("page_2"));
         label_4 = new QLabel(page_2);
         label_4->setObjectName(QStringLiteral("label_4"));
-        label_4->setGeometry(QRect(0, 460, 1080, 361));
+        label_4->setGeometry(QRect(0, 460, 1080, 431));
         sizePolicy.setHeightForWidth(label_4->sizePolicy().hasHeightForWidth());
         label_4->setSizePolicy(sizePolicy);
         QPalette palette2;
@@ -797,9 +798,9 @@ public:
         Sulje_2->setStyleSheet(QLatin1String("background-color: rgb(33, 0, 100);\n"
 "font: 36pt \"Ebrima\"; "));
         stackedWidget->addWidget(page_7);
-        page_9 = new QWidget();
-        page_9->setObjectName(QStringLiteral("page_9"));
-        label_10 = new QLabel(page_9);
+        page_8 = new QWidget();
+        page_8->setObjectName(QStringLiteral("page_8"));
+        label_10 = new QLabel(page_8);
         label_10->setObjectName(QStringLiteral("label_10"));
         label_10->setGeometry(QRect(10, 460, 1080, 271));
         sizePolicy.setHeightForWidth(label_10->sizePolicy().hasHeightForWidth());
@@ -819,6 +820,9 @@ public:
         palette25.setBrush(QPalette::Disabled, QPalette::Window, brush1);
         label_10->setPalette(palette25);
         label_10->setFont(font2);
+        stackedWidget->addWidget(page_8);
+        page_9 = new QWidget();
+        page_9->setObjectName(QStringLiteral("page_9"));
         stackedWidget->addWidget(page_9);
         banksimul = new QLabel(centralWidget);
         banksimul->setObjectName(QStringLiteral("banksimul"));
@@ -960,7 +964,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(1);
+        stackedWidget->setCurrentIndex(8);
 
 
         QMetaObject::connectSlotsByName(MainWindow);

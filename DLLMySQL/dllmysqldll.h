@@ -12,8 +12,6 @@ class DLLMYSQLDLLSHARED_EXPORT DLLMySQLDLL
 
 public:
     DLLMySQLDLL();
-    ~DLLMySQLDLL();
-
 
     bool interfaceFunctionStartConnection();
     void accountEvent();
@@ -24,10 +22,6 @@ public:
     void customerInf();
     void lockCard();
     void interfaceFunctionShowEvents();
-    QString nosto;
-    int loginTry;
-    int count;
-    int interval;
 
     struct Customer
     {
@@ -57,9 +51,12 @@ public:
         QString datetime;
     } events;
 
-
 private:
     MySQLEngine *objectMySQLEngine;
+    QString nosto;
+    int loginTry;
+    int count;
+    int interval;
 };
 
 #endif // DLLMYSQLDLL_H

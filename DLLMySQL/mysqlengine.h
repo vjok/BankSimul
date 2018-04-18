@@ -11,7 +11,6 @@ class MySQLEngine : public QObject
 
 public:
     MySQLEngine();
-    ~MySQLEngine();
     bool StartConnection();
     void accountEvent();
     bool logIn(QString pinCode, int cardIdentification, int loginTry);
@@ -21,10 +20,6 @@ public:
     void customerInf();
     void lockCard();
     void showEvents();
-    QString nosto;
-    int loginTry;
-    int count;
-    int interval;
 
     struct Customer
     {
@@ -54,6 +49,11 @@ public:
         QString datetime;
     } events;
 
+private:
+    QString nosto;
+    int loginTry;
+    int count;
+    int interval;
     MySQLEngine *objectDLLMySQL;
 
 };
