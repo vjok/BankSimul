@@ -13,7 +13,8 @@ public:
     MySQLEngine();
     bool StartConnection();
     void accountEvent();
-    bool logIn(QString pinCode, int cardIdentification, int loginTry);
+    bool logIn(QString pinCode, int loginTry);
+    void cardIdentification(int cardID);
     void logOut();
     void showBalance();
     void cashWithdrawal(double maara);
@@ -55,7 +56,6 @@ private:
     int count;
     int interval;
     MySQLEngine *objectDLLMySQL;
-
 };
 
 #endif // MYSQLENGINE_H

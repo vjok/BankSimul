@@ -21,22 +21,34 @@ bool MySQLEngine::StartConnection()
     return true;
 }
 
-
-bool MySQLEngine::logIn(QString pinCode, int cardIdentification, int loginTry)
-// vielä pientä viilausta vailla
+void MySQLEngine::cardIdentification(int cardID)
 {
-    // pinCode = syötetty pin-koodi
     QSqlQuery query;
-    query.prepare("SELECT idKortti, idTili, salasana FROM Kortti WHERE korttitunniste = ?");
-    // cardIdentification = RFID:llä luettu kortintunniste
-    query.addBindValue(cardIdentification);
+    query.prepare("SELECT idKortti, idTili FROM Kortti WHERE korttitunniste = ?");
+    // cardID = RFID:llä luettu kortintunniste
+    query.addBindValue(cardID);
     query.exec();
 
     while (query.next())
     {
         this->cardData.id = query.value(0).toInt();
         this->accountData.id = query.value(1).toInt();
-        this->cardData.password = query.value(2).toInt();
+    }
+}
+
+bool MySQLEngine::logIn(QString pinCode, int loginTry)
+// vielä pientä viilausta vailla
+{
+    int password;
+    // pinCode = syötetty pin-koodi
+    QSqlQuery query;
+    query.prepare("SELECT salasana FROM Kortti WHERE idKortti = ?");
+    query.addBindValue(this->cardData.id);
+    query.exec();
+
+    while (query.next())
+    {
+        password = query.value(0).toInt();
     }
 
     if (pinCode != this->cardData.password)

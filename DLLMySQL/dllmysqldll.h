@@ -15,7 +15,8 @@ public:
 
     bool interfaceFunctionStartConnection();
     void accountEvent();
-    bool interfaceFunctionLogIn(QString pinCode, int cardIdentification, int loginTry);
+    bool interfaceFunctionLogIn(QString pinCode, int loginTry);
+    void interfaceFunctionCardIdentification(int cardID);
     void interfaceFunctionLogOut();
     void interfaceFunctionShowBalance();
     void interfaceFunctionCashWithdrawal(double maara);

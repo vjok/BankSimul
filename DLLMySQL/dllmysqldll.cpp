@@ -11,6 +11,11 @@ bool DLLMySQLDLL::interfaceFunctionStartConnection()
     return true;
 }
 
+void DLLMySQLDLL::interfaceFunctionCardIdentification(int cardID)
+{
+    objectMySQLEngine->cardIdentification(cardID);
+}
+
 bool DLLMySQLDLL::interfaceFunctionLogIn(QString pinCode, int cardIdentification, int loginTry)
 {
     bool login = objectMySQLEngine->logIn(pinCode, cardIdentification, loginTry);
