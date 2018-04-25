@@ -22,7 +22,8 @@ public:
     void interfaceFunctionLogOut();
     void interfaceFunctionLockCard();
     QString interfaceFunctionShowBalance();
-    QString interfaceFunctionGetAccountEvent();
+    QString interfaceFunctionGetFiveAccountEvents();
+    QString interfaceFunctionGetAllAccountEvents();
     void interfaceFunctionCashWithdrawal(double amount);
     void customerInf();
     void lockCard();

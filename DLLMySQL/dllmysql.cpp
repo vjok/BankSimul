@@ -44,9 +44,14 @@ QString DLLMySQL::interfaceFunctionShowBalance()
     return objectDLLMySQLEngine->showBalance();
 }
 
-QString DLLMySQL::interfaceFunctionGetAccountEvent()
+QString DLLMySQL::interfaceFunctionGetAllAccountEvents()
 {
-    return objectDLLMySQLEngine->getAccountEvent();
+    return objectDLLMySQLEngine->getAllAccountEvents();
+}
+
+QString DLLMySQL::interfaceFunctionGetFiveAccountEvents()
+{
+    return objectDLLMySQLEngine->getFiveAccountEvents();
 }
 
 void DLLMySQL::interfaceFunctionCashWithdrawal(double amount)

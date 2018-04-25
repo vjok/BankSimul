@@ -58,6 +58,7 @@ private:
     DLLPINCode *objectDLLPINCode;
     DLLSerialPort *objectDLLSerialPort;
     DLLMySQL *objectDLLMySQL;
+    int index;
 };
 
 #endif // MAINWINDOW_H

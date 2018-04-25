@@ -182,6 +182,7 @@ void BankSimul::on_NaytaSaldo_clicked()
 
 void BankSimul::on_SelaaTili_clicked()
 {
+    index = 0;
     page = 6;
     ui->stackedWidget->setCurrentIndex(5);
     Timer10();
@@ -212,11 +213,65 @@ void BankSimul::on_SelaaTili_clicked()
 
 void BankSimul::on_Eteenpain_clicked()
 {
+    int index;
+    index + 40;
+    page = 6;
+    ui->stackedWidget->setCurrentIndex(5);
+    Timer10();
+    QString returnString = objectDLLMySQL->interfaceFunctionShowBalance();
+    QStringList balanceList = returnString.split('|');
+    QFont font = ui->labelTiliSaldo->font();
+    font.setPointSize(40);
+    ui->labelTiliSaldo->setAlignment(Qt::AlignCenter);
+    ui->labelTiliSaldo->setFont(font);
+    ui->labelTiliSaldo->setText(balanceList[0] + " " + balanceList[1] + "\nSaldo: " + balanceList[2] + "€");
+
+    QString eventString = objectDLLMySQL->interfaceFunctionGetAllAccountEvents();
+    QStringList eventList = eventString.split('|');
+    font.setPointSize(24);
+    ui->label1->setFont(font);
+    ui->label1->setText(           "11. " + eventList[0+index] + " " + eventList[1+index] + " " + eventList[2+index] + "€ " + eventList[3+index]
+                                + "\n12. " + eventList[4+index] + " " + eventList[5+index] + " " + eventList[6+index] + "€ " + eventList[7+index]
+                                + "\n13. " + eventList[8+index] + " " + eventList[9+index] + " " + eventList[10+index] + "€ " + eventList[11+index]
+                                + "\n14. " + eventList[12+index] + " " + eventList[13+index] + " " + eventList[14+index] + "€ " + eventList[15+index]
+                                + "\n15. " + eventList[16+index] + " " + eventList[17+index] + " " + eventList[18+index] + "€ " + eventList[19+index]
+                                + "\n16. " + eventList[20+index] + " " + eventList[21+index] + " " + eventList[22+index] + "€ " + eventList[23+index]
+                                + "\n17. " + eventList[24+index] + " " + eventList[25+index] + " " + eventList[26+index] + "€ " + eventList[27+index]
+                                + "\n18. " + eventList[28+index] + " " + eventList[29+index] + " " + eventList[30+index] + "€ " + eventList[31+index]
+                                + "\n19. " + eventList[32+index] + " " + eventList[33+index] + " " + eventList[34+index] + "€ " + eventList[35+index]
+                                + "\n20. " + eventList[36+index] + " " + eventList[37+index] + " " + eventList[38+index] + "€ " + eventList[39+index]);
+
 
 }
 
 void BankSimul::on_Taaksepain_clicked()
 {
+    index + 40;
+    page = 6;
+    ui->stackedWidget->setCurrentIndex(5);
+    Timer10();
+    QString returnString = objectDLLMySQL->interfaceFunctionShowBalance();
+    QStringList balanceList = returnString.split('|');
+    QFont font = ui->labelTiliSaldo->font();
+    font.setPointSize(40);
+    ui->labelTiliSaldo->setAlignment(Qt::AlignCenter);
+    ui->labelTiliSaldo->setFont(font);
+    ui->labelTiliSaldo->setText(balanceList[0] + " " + balanceList[1] + "\nSaldo: " + balanceList[2] + "€");
+
+    QString eventString = objectDLLMySQL->interfaceFunctionGetAllAccountEvents();
+    QStringList eventList = eventString.split('|');
+    font.setPointSize(24);
+    ui->label1->setFont(font);
+    ui->label1->setText(           "11. " + eventList[0+index] + " " + eventList[1+index] + " " + eventList[2+index] + "€ " + eventList[3+index]
+                                + "\n12. " + eventList[4+index] + " " + eventList[5+index] + " " + eventList[6+index] + "€ " + eventList[7+index]
+                                + "\n13. " + eventList[8+index] + " " + eventList[9+index] + " " + eventList[10+index] + "€ " + eventList[11+index]
+                                + "\n14. " + eventList[12+index] + " " + eventList[13+index] + " " + eventList[14+index] + "€ " + eventList[15+index]
+                                + "\n15. " + eventList[16+index] + " " + eventList[17+index] + " " + eventList[18+index] + "€ " + eventList[19+index]
+                                + "\n16. " + eventList[20+index] + " " + eventList[21+index] + " " + eventList[22+index] + "€ " + eventList[23+index]
+                                + "\n17. " + eventList[24+index] + " " + eventList[25+index] + " " + eventList[26+index] + "€ " + eventList[27+index]
+                                + "\n18. " + eventList[28+index] + " " + eventList[29+index] + " " + eventList[30+index] + "€ " + eventList[31+index]
+                                + "\n19. " + eventList[32+index] + " " + eventList[33+index] + " " + eventList[34+index] + "€ " + eventList[35+index]
+                                + "\n20. " + eventList[36+index] + " " + eventList[37+index] + " " + eventList[38+index] + "€ " + eventList[39+index]);
 
 }
 

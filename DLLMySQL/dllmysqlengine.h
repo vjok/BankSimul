@@ -19,7 +19,8 @@ public:
     bool isLocked();
     void logOut();
     QString showBalance();
-    QString getAccountEvent();
+    QString getAllAccountEvents();
+    QString getFiveAccountEvents();
     void cashWithdrawal(double amount);
     void customerInf();
     void lockCard();

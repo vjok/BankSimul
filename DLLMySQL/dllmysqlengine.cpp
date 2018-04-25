@@ -11,7 +11,7 @@ DLLMySQLEngine::~DLLMySQLEngine()
     objectDLLMySQL = NULL;
 }
 
-bool DLLMySQLEngine::StartConnection()
+bool DLLMySQLEngine::StartConnection() // starts connection to database, returns true or false
 {
     db = QSqlDatabase::addDatabase("QMYSQL", "bankDB");
     db.setHostName("mysli.oamk.fi");
@@ -29,9 +29,10 @@ bool DLLMySQLEngine::StartConnection()
 
 bool DLLMySQLEngine::cardIdentification(QString cardID)
 {
+    // searches information from table 'Kortti' based on cardID.
+    // if nothing is found, returns false.
     QSqlQuery query(db);
     query.prepare("SELECT idKortti, idTili  FROM Kortti WHERE korttitunniste = ?");
-    // cardID = RFID:llä luettu kortintunniste
     query.addBindValue(cardID);
     query.exec();
 
@@ -54,6 +55,7 @@ bool DLLMySQLEngine::cardIdentification(QString cardID)
 
 bool DLLMySQLEngine::isLocked()
 {
+    // checks from database if the card is locked, returns true if it is.
     QSqlQuery query(db);
     query.prepare("SELECT lukitus FROM Kortti WHERE idKortti = ?");
     query.addBindValue(this->cardData.id);
@@ -74,7 +76,7 @@ bool DLLMySQLEngine::isLocked()
 
 bool DLLMySQLEngine::logIn(QString pinCode)
 {
-    // pinCode = syötetty pin-koodi
+    // pinCode = given pin-code
     QSqlQuery query(db);
     query.prepare("SELECT salasana FROM Kortti WHERE idKortti = ?");
     query.addBindValue(this->cardData.id);
@@ -84,14 +86,14 @@ bool DLLMySQLEngine::logIn(QString pinCode)
     {
         this->cardData.password = query.value(0).toInt();
     }
-    //tehdään salasanasta QString, jota voidaan verrata syötetyn kanssa
+    //converts the password to QString, which can be compared to the input.
     QString passString = QString::number(cardData.password);
 
     if (pinCode != passString)
     {
         return false;
     }
-
+        //searches information for later use
         QSqlQuery accountQuery(db);
         accountQuery.prepare("SELECT idAsiakas FROM Tili WHERE idTili = ?");
         accountQuery.addBindValue(this->accountData.id);
@@ -101,13 +103,12 @@ bool DLLMySQLEngine::logIn(QString pinCode)
         {
             this->customerData.customerID = accountQuery.value(0).toInt();
         }
-
-
         return true;
 }
 
 void DLLMySQLEngine::lockCard()
 {
+    //locks the card, if the password has been entered incorrectly too many times.
     QSqlQuery query(db);
     query.prepare("UPDATE Kortti SET lukitus = 1 WHERE idKortti = ?");
     query.addBindValue(this->cardData.id);
@@ -115,46 +116,66 @@ void DLLMySQLEngine::lockCard()
 }
 
 void DLLMySQLEngine::customerInf()
-// OK
 {
+    //searches needed customer informations
     QSqlQuery query(db);
-    query.prepare("SELECT * from Asiakas WHERE idAsiakas = ?");
+    query.prepare("SELECT etumimi, sukunimi from Asiakas WHERE idAsiakas = ?");
     query.addBindValue(this->customerData.customerID);
     query.exec();
 
     while(query.next())
     {
-        this->customerData.firstname = query.value(1).toString();
-        this->customerData.lastname = query.value(2).toString();
+        this->customerData.firstname = query.value(0).toString();
+        this->customerData.lastname = query.value(1).toString();
     }
 
 }
 
-QString DLLMySQLEngine::getAccountEvent()
+QString DLLMySQLEngine::getFiveAccountEvents()
 {
+    //searches account events
     QSqlQuery query(db);
     query.prepare("SELECT * FROM Tilitapahtumat WHERE idTili = ?");
     query.addBindValue(this->accountData.id);
     query.exec();
     query.last();
     QString eventString;
-    for (int i = 0; i < 10; i++)
+    for (int i = 0; i < 5; i++)
     {
         this->events.recipient = query.value(2).toString();
         this->events.definition = query.value(3).toString();
         this->events.amount = query.value(4).toDouble();
         this->events.datetime = query.value(5).toString();
         //qDebug() << events.recipient << endl << events.definition << endl << events.amount << endl << events.datetime;
-        eventString.append(events.recipient + "|" + events.definition + "|" + QString::number(events.amount) + "|" +  events.datetime + "|");
+        eventString.append(events.recipient + "|" +  events.definition + "|" +  QString::number(events.amount) + "|" +  events.datetime + "|");
         query.previous();
     }
     return eventString;
 }
 
-
+QString DLLMySQLEngine::getAllAccountEvents()
+{
+    //searches account events
+    QSqlQuery query(db);
+    query.prepare("SELECT * FROM Tilitapahtumat WHERE idTili = ?");
+    query.addBindValue(this->accountData.id);
+    query.exec();
+    query.last();
+    QString eventString;
+    for (int i = 0; i < 50; i++)
+    {
+        this->events.recipient = query.value(2).toString();
+        this->events.definition = query.value(3).toString();
+        this->events.amount = query.value(4).toDouble();
+        this->events.datetime = query.value(5).toString();
+        //qDebug() << events.recipient << endl << events.definition << endl << events.amount << endl << events.datetime;
+        eventString.append(events.recipient + events.definition + QString::number(events.amount) + "|" +  events.datetime + "|");
+        query.previous();
+    }
+    return eventString;
+}
 
 void DLLMySQLEngine::accountEvent()
-//aikalailla OK
 {
     QSqlQuery query(db);
     query.prepare("SELECT * FROM Tilitapahtumat WHERE idTili = ? ORDER BY idTapahtuma DESC LIMIT ? OFFSET ?");
@@ -189,10 +210,9 @@ void DLLMySQLEngine::showEvents()
 
 
 QString DLLMySQLEngine::showBalance()
-// OK
 {
-    //'näytä saldo'-nappia painettu
     this->customerInf();
+    //searches customer's balance
     QSqlQuery query(db);
     query.prepare("SELECT saldo FROM Tili WHERE idTili = ?");
     query.addBindValue(this->accountData.id);
@@ -201,15 +221,12 @@ QString DLLMySQLEngine::showBalance()
     {
         this->accountData.balance = query.value(0).toDouble();
     }
-
-    //count = 5;
+    //returns searched information as QString
     QString returnValue = customerData.firstname + "|" + customerData.lastname + "|" + QString::number(accountData.balance);
     return returnValue;
-
 }
 
 void DLLMySQLEngine::cashWithdrawal(double amount)
-// vaatii vielä korjausta
 {
     newAmount = 0;
     this->customerInf();
@@ -217,6 +234,7 @@ void DLLMySQLEngine::cashWithdrawal(double amount)
     QSqlQuery query(db);
     QSqlQuery updatedAmount(db);
 
+    //searches customer's amount
     query.prepare("SELECT saldo FROM Tili WHERE idTili = ?");
     query.addBindValue(this->accountData.id);
     query.exec();
@@ -232,7 +250,7 @@ void DLLMySQLEngine::cashWithdrawal(double amount)
 
     else
     {
-    // jos mainos katsotaan
+    //if the ad is watched
     newAmount = this->accountData.balance - amount;
     updatedAmount.prepare("UPDATE Tili SET saldo = ? WHERE idTili = ?");
     updatedAmount.addBindValue(newAmount);
@@ -243,6 +261,13 @@ void DLLMySQLEngine::cashWithdrawal(double amount)
     query.addBindValue(this->accountData.id);
     query.addBindValue(amount);
     query.exec();
+
+
+
+
+
+
+
 
     //jos mainos skipataan
     /*
@@ -264,6 +289,7 @@ void DLLMySQLEngine::cashWithdrawal(double amount)
 
 void DLLMySQLEngine::logOut()
 {
+    //closes the database connection
     db.close();
     db = QSqlDatabase();
     QSqlDatabase::removeDatabase("bankDB");
