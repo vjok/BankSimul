@@ -8,11 +8,19 @@ DLLPINCode::DLLPINCode()
     QObject::connect(objectDLLPinCodeEngine, &DLLPinCodeEngine::sendPIN, this, &DLLPINCode::receivePIN);
 }
 
+DLLPINCode::~DLLPINCode()
+{
+    delete objectDLLPinCodeEngine;
+    delete objectDesk;
+    objectDLLPinCodeEngine = NULL;
+    objectDesk = NULL;
+}
+
 void DLLPINCode::interfaceFunctionControlEngine()
 {
     objectDLLPinCodeEngine->Timer();
     objectDLLPinCodeEngine->setGeometry(objectDesk->screenGeometry(0));
-    objectDLLPinCodeEngine->showFullScreen();
+    objectDLLPinCodeEngine->show();
     objectDLLPinCodeEngine->exec();
 }
 

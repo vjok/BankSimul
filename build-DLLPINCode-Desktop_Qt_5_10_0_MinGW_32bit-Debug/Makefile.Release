@@ -227,10 +227,11 @@ release/moc_dllpincode.cpp: C:/Qt/5.10.0/mingw53_32/include/QtWidgets/QWidget \
 		C:/Qt/5.10.0/mingw53_32/include/QtWidgets/qdesktopwidget.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtGui/qguiapplication.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtGui/qinputmethod.h \
+		C:/Qt/5.10.0/mingw53_32/include/QtWidgets/QDesktopWidget \
 		../DLLPINCode/dllpincode.h \
 		release/moc_predefs.h \
 		C:/Qt/5.10.0/mingw53_32/bin/moc.exe
-	C:\Qt\5.10.0\mingw53_32\bin\moc.exe $(DEFINES) --include release/moc_predefs.h -IC:/Qt/5.10.0/mingw53_32/mkspecs/win32-g++ -I"C:/Users/toni_/OneDrive - Oulun ammattikorkeakoulu/OhjelmistokehitysProjekti/BanksimulExe_12_04_2018/DLLPINCode" -IC:/Qt/5.10.0/mingw53_32/include -IC:/Qt/5.10.0/mingw53_32/include/QtWidgets -IC:/Qt/5.10.0/mingw53_32/include/QtGui -IC:/Qt/5.10.0/mingw53_32/include/QtANGLE -IC:/Qt/5.10.0/mingw53_32/include/QtSerialPort -IC:/Qt/5.10.0/mingw53_32/include/QtCore -I. -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++ -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward ..\DLLPINCode\dllpincode.h -o release\moc_dllpincode.cpp
+	C:\Qt\5.10.0\mingw53_32\bin\moc.exe $(DEFINES) --include release/moc_predefs.h -IC:/Qt/5.10.0/mingw53_32/mkspecs/win32-g++ -I"C:/Users/Admin/OneDrive - Oulun ammattikorkeakoulu/OhjelmistokehitysProjekti/BanksimulExe_18_04_2018/BankSimul/DLLPINCode" -IC:/Qt/5.10.0/mingw53_32/include -IC:/Qt/5.10.0/mingw53_32/include/QtWidgets -IC:/Qt/5.10.0/mingw53_32/include/QtGui -IC:/Qt/5.10.0/mingw53_32/include/QtANGLE -IC:/Qt/5.10.0/mingw53_32/include/QtSerialPort -IC:/Qt/5.10.0/mingw53_32/include/QtCore -I. -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++ -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward ..\DLLPINCode\dllpincode.h -o release\moc_dllpincode.cpp
 
 release/moc_dllpincodeengine.cpp: C:/Qt/5.10.0/mingw53_32/include/QtWidgets/QDialog \
 		C:/Qt/5.10.0/mingw53_32/include/QtWidgets/qdialog.h \
@@ -351,7 +352,7 @@ release/moc_dllpincodeengine.cpp: C:/Qt/5.10.0/mingw53_32/include/QtWidgets/QDia
 		../DLLPINCode/dllpincodeengine.h \
 		release/moc_predefs.h \
 		C:/Qt/5.10.0/mingw53_32/bin/moc.exe
-	C:\Qt\5.10.0\mingw53_32\bin\moc.exe $(DEFINES) --include release/moc_predefs.h -IC:/Qt/5.10.0/mingw53_32/mkspecs/win32-g++ -I"C:/Users/toni_/OneDrive - Oulun ammattikorkeakoulu/OhjelmistokehitysProjekti/BanksimulExe_12_04_2018/DLLPINCode" -IC:/Qt/5.10.0/mingw53_32/include -IC:/Qt/5.10.0/mingw53_32/include/QtWidgets -IC:/Qt/5.10.0/mingw53_32/include/QtGui -IC:/Qt/5.10.0/mingw53_32/include/QtANGLE -IC:/Qt/5.10.0/mingw53_32/include/QtSerialPort -IC:/Qt/5.10.0/mingw53_32/include/QtCore -I. -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++ -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward ..\DLLPINCode\dllpincodeengine.h -o release\moc_dllpincodeengine.cpp
+	C:\Qt\5.10.0\mingw53_32\bin\moc.exe $(DEFINES) --include release/moc_predefs.h -IC:/Qt/5.10.0/mingw53_32/mkspecs/win32-g++ -I"C:/Users/Admin/OneDrive - Oulun ammattikorkeakoulu/OhjelmistokehitysProjekti/BanksimulExe_18_04_2018/BankSimul/DLLPINCode" -IC:/Qt/5.10.0/mingw53_32/include -IC:/Qt/5.10.0/mingw53_32/include/QtWidgets -IC:/Qt/5.10.0/mingw53_32/include/QtGui -IC:/Qt/5.10.0/mingw53_32/include/QtANGLE -IC:/Qt/5.10.0/mingw53_32/include/QtSerialPort -IC:/Qt/5.10.0/mingw53_32/include/QtCore -I. -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++ -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward ..\DLLPINCode\dllpincodeengine.h -o release\moc_dllpincodeengine.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
@@ -495,7 +496,8 @@ release/dllpincode.o: ../DLLPINCode/dllpincode.cpp ../DLLPINCode/dllpincode.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qeventloop.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtWidgets/qdesktopwidget.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtGui/qguiapplication.h \
-		C:/Qt/5.10.0/mingw53_32/include/QtGui/qinputmethod.h
+		C:/Qt/5.10.0/mingw53_32/include/QtGui/qinputmethod.h \
+		C:/Qt/5.10.0/mingw53_32/include/QtWidgets/QDesktopWidget
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\dllpincode.o ..\DLLPINCode\dllpincode.cpp
 
 release/dllpincodeengine.o: ../DLLPINCode/dllpincodeengine.cpp ../DLLPINCode/dllpincodeengine.h \

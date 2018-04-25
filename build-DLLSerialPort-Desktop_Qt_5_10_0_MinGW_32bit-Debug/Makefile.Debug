@@ -108,10 +108,7 @@ debug/moc_predefs.h: C:/Qt/5.10.0/mingw53_32/mkspecs/features/data/dummy.cpp
 compiler_moc_header_make_all: debug/moc_dllserialport.cpp debug/moc_dllserialportengine.cpp
 compiler_moc_header_clean:
 	-$(DEL_FILE) debug\moc_dllserialport.cpp debug\moc_dllserialportengine.cpp
-debug/moc_dllserialport.cpp: C:/Qt/5.10.0/mingw53_32/include/QtCore/QObject \
-		C:/Qt/5.10.0/mingw53_32/include/QtCore/qobject.h \
-		C:/Qt/5.10.0/mingw53_32/include/QtCore/qobjectdefs.h \
-		C:/Qt/5.10.0/mingw53_32/include/QtCore/qnamespace.h \
+debug/moc_dllserialport.cpp: ../DLLSerialPort/dllserialport_global.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qglobal.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qconfig-bootstrapped.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qconfig.h \
@@ -133,6 +130,11 @@ debug/moc_dllserialport.cpp: C:/Qt/5.10.0/mingw53_32/include/QtCore/QObject \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qmutex.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qnumeric.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qversiontagging.h \
+		../DLLSerialPort/dllserialportengine.h \
+		C:/Qt/5.10.0/mingw53_32/include/QtCore/QObject \
+		C:/Qt/5.10.0/mingw53_32/include/QtCore/qobject.h \
+		C:/Qt/5.10.0/mingw53_32/include/QtCore/qobjectdefs.h \
+		C:/Qt/5.10.0/mingw53_32/include/QtCore/qnamespace.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qobjectdefs_impl.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qstring.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qchar.h \
@@ -158,8 +160,6 @@ debug/moc_dllserialport.cpp: C:/Qt/5.10.0/mingw53_32/include/QtCore/QObject \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qvarlengtharray.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qcontainerfwd.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qobject_impl.h \
-		../DLLSerialPort/dllserialport_global.h \
-		../DLLSerialPort/dllserialportengine.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtSerialPort/QSerialPort \
 		C:/Qt/5.10.0/mingw53_32/include/QtSerialPort/qserialport.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qiodevice.h \
@@ -185,7 +185,7 @@ debug/moc_dllserialport.cpp: C:/Qt/5.10.0/mingw53_32/include/QtCore/QObject \
 		../DLLSerialPort/dllserialport.h \
 		debug/moc_predefs.h \
 		C:/Qt/5.10.0/mingw53_32/bin/moc.exe
-	C:\Qt\5.10.0\mingw53_32\bin\moc.exe $(DEFINES) --include debug/moc_predefs.h -IC:/Qt/5.10.0/mingw53_32/mkspecs/win32-g++ -I"C:/Users/Admin/OneDrive - Oulun ammattikorkeakoulu/OhjelmistokehitysProjekti/BanksimulExe_12_04_2018/DLLSerialPort" -IC:/Qt/5.10.0/mingw53_32/include -IC:/Qt/5.10.0/mingw53_32/include/QtSerialPort -IC:/Qt/5.10.0/mingw53_32/include/QtCore -I. -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++ -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward ..\DLLSerialPort\dllserialport.h -o debug\moc_dllserialport.cpp
+	C:\Qt\5.10.0\mingw53_32\bin\moc.exe $(DEFINES) --include debug/moc_predefs.h -IC:/Qt/5.10.0/mingw53_32/mkspecs/win32-g++ -I"C:/Users/toni_/OneDrive - Oulun ammattikorkeakoulu/OhjelmistokehitysProjekti/BanksimulExe_24_04_2018/DLLSerialPort" -IC:/Qt/5.10.0/mingw53_32/include -IC:/Qt/5.10.0/mingw53_32/include/QtSerialPort -IC:/Qt/5.10.0/mingw53_32/include/QtCore -I. -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++ -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward ..\DLLSerialPort\dllserialport.h -o debug\moc_dllserialport.cpp
 
 debug/moc_dllserialportengine.cpp: C:/Qt/5.10.0/mingw53_32/include/QtCore/QObject \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qobject.h \
@@ -262,7 +262,7 @@ debug/moc_dllserialportengine.cpp: C:/Qt/5.10.0/mingw53_32/include/QtCore/QObjec
 		../DLLSerialPort/dllserialportengine.h \
 		debug/moc_predefs.h \
 		C:/Qt/5.10.0/mingw53_32/bin/moc.exe
-	C:\Qt\5.10.0\mingw53_32\bin\moc.exe $(DEFINES) --include debug/moc_predefs.h -IC:/Qt/5.10.0/mingw53_32/mkspecs/win32-g++ -I"C:/Users/Admin/OneDrive - Oulun ammattikorkeakoulu/OhjelmistokehitysProjekti/BanksimulExe_12_04_2018/DLLSerialPort" -IC:/Qt/5.10.0/mingw53_32/include -IC:/Qt/5.10.0/mingw53_32/include/QtSerialPort -IC:/Qt/5.10.0/mingw53_32/include/QtCore -I. -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++ -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward ..\DLLSerialPort\dllserialportengine.h -o debug\moc_dllserialportengine.cpp
+	C:\Qt\5.10.0\mingw53_32\bin\moc.exe $(DEFINES) --include debug/moc_predefs.h -IC:/Qt/5.10.0/mingw53_32/mkspecs/win32-g++ -I"C:/Users/toni_/OneDrive - Oulun ammattikorkeakoulu/OhjelmistokehitysProjekti/BanksimulExe_24_04_2018/DLLSerialPort" -IC:/Qt/5.10.0/mingw53_32/include -IC:/Qt/5.10.0/mingw53_32/include/QtSerialPort -IC:/Qt/5.10.0/mingw53_32/include/QtCore -I. -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++ -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward ..\DLLSerialPort\dllserialportengine.h -o debug\moc_dllserialportengine.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
@@ -281,10 +281,7 @@ compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean
 ####### Compile
 
 debug/dllserialport.o: ../DLLSerialPort/dllserialport.cpp ../DLLSerialPort/dllserialport.h \
-		C:/Qt/5.10.0/mingw53_32/include/QtCore/QObject \
-		C:/Qt/5.10.0/mingw53_32/include/QtCore/qobject.h \
-		C:/Qt/5.10.0/mingw53_32/include/QtCore/qobjectdefs.h \
-		C:/Qt/5.10.0/mingw53_32/include/QtCore/qnamespace.h \
+		../DLLSerialPort/dllserialport_global.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qglobal.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qconfig-bootstrapped.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qconfig.h \
@@ -306,6 +303,11 @@ debug/dllserialport.o: ../DLLSerialPort/dllserialport.cpp ../DLLSerialPort/dllse
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qmutex.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qnumeric.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qversiontagging.h \
+		../DLLSerialPort/dllserialportengine.h \
+		C:/Qt/5.10.0/mingw53_32/include/QtCore/QObject \
+		C:/Qt/5.10.0/mingw53_32/include/QtCore/qobject.h \
+		C:/Qt/5.10.0/mingw53_32/include/QtCore/qobjectdefs.h \
+		C:/Qt/5.10.0/mingw53_32/include/QtCore/qnamespace.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qobjectdefs_impl.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qstring.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qchar.h \
@@ -331,8 +333,6 @@ debug/dllserialport.o: ../DLLSerialPort/dllserialport.cpp ../DLLSerialPort/dllse
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qvarlengtharray.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qcontainerfwd.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qobject_impl.h \
-		../DLLSerialPort/dllserialport_global.h \
-		../DLLSerialPort/dllserialportengine.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtSerialPort/QSerialPort \
 		C:/Qt/5.10.0/mingw53_32/include/QtSerialPort/qserialport.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qiodevice.h \

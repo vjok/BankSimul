@@ -1,10 +1,8 @@
 #ifndef DLLSERIALPORT_H
 #define DLLSERIALPORT_H
-
-#include <QObject>
-
 #include "dllserialport_global.h"
 #include "dllserialportengine.h"
+#include <QObject>
 
 class DLLSERIALPORTSHARED_EXPORT DLLSerialPort : public QObject
 {
@@ -12,8 +10,7 @@ class DLLSERIALPORTSHARED_EXPORT DLLSerialPort : public QObject
 public:
     DLLSerialPort();
     ~DLLSerialPort();
-    void interfaceOpenConnection();
-    void interfaceCloseConnection();
+    void interfaceFunctionOpenConnection();
 
 private slots:
     void receiveValue(QString);

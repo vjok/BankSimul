@@ -17,11 +17,7 @@ void DLLSerialPort::receiveValue(QString returnString)
     emit returnValue(returnString);
 }
 
-void DLLSerialPort::interfaceOpenConnection()
+void DLLSerialPort::interfaceFunctionOpenConnection()
 {
     objectDLLSerialPortEngine->openConnection();
-}
-
-void DLLSerialPort::interfaceCloseConnection() {
-    objectDLLSerialPortEngine->closeConnection();
 }

@@ -38,12 +38,5 @@ void DLLSerialPortEngine::serialReceived()
 void DLLSerialPortEngine::openConnection()
 {
     objectQSerialPort->open(QIODevice::ReadOnly);
-
-    //clear buffer before reading new data
-    objectQSerialPort->clear(QSerialPort::AllDirections);
-}
-
-void DLLSerialPortEngine::closeConnection()
-{
-    objectQSerialPort->close();
+    objectQSerialPort->clear(QSerialPort::AllDirections);   // clear buffer before reading new data
 }

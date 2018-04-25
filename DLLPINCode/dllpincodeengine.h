@@ -1,10 +1,9 @@
 #ifndef DLLPINCODEENGINE_H
 #define DLLPINCODEENGINE_H
+#include <QApplication>
 #include <QDialog>
 #include <QString>
 #include <QTimer>
-#include <QApplication>
-#include <QDebug>
 
 namespace Ui {
 class Dialog;

@@ -25,14 +25,22 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-        mainwindow.cpp
+    banksimul.cpp
 
 HEADERS += \
-        mainwindow.h
+    banksimul.h
 
 FORMS += \
         mainwindow.ui
 
+
+
+
+win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../build-DLLMySQL-Desktop_Qt_5_10_0_MinGW_32bit-Debug/release/ -lDLLMySQL
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../build-DLLMySQL-Desktop_Qt_5_10_0_MinGW_32bit-Debug/debug/ -lDLLMySQL
+
+INCLUDEPATH += $$PWD/../DLLMySQL
+DEPENDPATH += $$PWD/../DLLMySQL
 
 win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../build-DLLPINCode-Desktop_Qt_5_10_0_MinGW_32bit-Debug/release/ -lDLLPINCode
 else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../build-DLLPINCode-Desktop_Qt_5_10_0_MinGW_32bit-Debug/debug/ -lDLLPINCode
@@ -45,9 +53,3 @@ else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../build-DLLSerialPort-
 
 INCLUDEPATH += $$PWD/../DLLSerialPort
 DEPENDPATH += $$PWD/../DLLSerialPort
-
-win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../build-DLLMySQLDLL-Desktop_Qt_5_10_0_MinGW_32bit-Debug/release/ -lDLLMySQLDLL
-else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../build-DLLMySQLDLL-Desktop_Qt_5_10_0_MinGW_32bit-Debug/debug/ -lDLLMySQLDLL
-
-INCLUDEPATH += $$PWD/../DLLMySQL
-DEPENDPATH += $$PWD/../DLLMySQL
