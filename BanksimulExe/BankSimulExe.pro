@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui serialport
+QT       += core gui serialport multimedia multimediawidgets
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -35,21 +35,28 @@ FORMS += \
 
 
 
+win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../build-DLLAd-Desktop_Qt_5_10_0_MinGW_32bit-Debug/release/ -lDLLAD
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../build-DLLAd-Desktop_Qt_5_10_0_MinGW_32bit-Debug/debug/ -lDLLAD
+INCLUDEPATH += $$PWD/../DLLAd
+DEPENDPATH += $$PWD/../DLLAd
+
+
 
 win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../build-DLLMySQL-Desktop_Qt_5_10_0_MinGW_32bit-Debug/release/ -lDLLMySQL
 else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../build-DLLMySQL-Desktop_Qt_5_10_0_MinGW_32bit-Debug/debug/ -lDLLMySQL
-
 INCLUDEPATH += $$PWD/../DLLMySQL
 DEPENDPATH += $$PWD/../DLLMySQL
 
+
+
 win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../build-DLLPINCode-Desktop_Qt_5_10_0_MinGW_32bit-Debug/release/ -lDLLPINCode
 else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../build-DLLPINCode-Desktop_Qt_5_10_0_MinGW_32bit-Debug/debug/ -lDLLPINCode
-
 INCLUDEPATH += $$PWD/../DLLPINCode
 DEPENDPATH += $$PWD/../DLLPINCode
 
+
+
 win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../build-DLLSerialPort-Desktop_Qt_5_10_0_MinGW_32bit-Debug/release/ -lDLLSerialPort
 else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../build-DLLSerialPort-Desktop_Qt_5_10_0_MinGW_32bit-Debug/debug/ -lDLLSerialPort
-
 INCLUDEPATH += $$PWD/../DLLSerialPort
 DEPENDPATH += $$PWD/../DLLSerialPort

@@ -1,13 +1,13 @@
 /********************************************************************************
-** Form generated from reading UI file 'dialog.ui'
+** Form generated from reading UI file 'DLLAdEngine.ui'
 **
 ** Created by: Qt User Interface Compiler version 5.10.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
 
-#ifndef UI_DIALOG_H
-#define UI_DIALOG_H
+#ifndef UI_DLLADENGINE_H
+#define UI_DLLADENGINE_H
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QAction>
@@ -25,8 +25,9 @@ public:
     void setupUi(QDialog *Dialog)
     {
         if (Dialog->objectName().isEmpty())
-            Dialog->setObjectName(QStringLiteral("Dialog"));
-        Dialog->resize(400, 300);
+            Dialog->setObjectName(QLatin1String("Dialog"));
+        Dialog->resize(1080, 1920);
+        Dialog->setStyleSheet(QLatin1String("background-color: rgb(60, 60, 60);"));
 
         retranslateUi(Dialog);
 
@@ -46,4 +47,4 @@ namespace Ui {
 
 QT_END_NAMESPACE
 
-#endif // UI_DIALOG_H
+#endif // UI_DLLADENGINE_H

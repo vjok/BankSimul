@@ -3,9 +3,11 @@
 #include <QTimer>
 #include <QDebug>
 #include <QMainWindow>
+#include "DLLAd.h"
 #include "dllpincode.h"
 #include "dllserialport.h"
 #include "dllmysql.h"
+
 
 namespace Ui {
 class MainWindow;
@@ -41,10 +43,13 @@ private slots:
     void on_Sulje_2_clicked();
     void checkId(QString CardId);
     void checkPIN(QString checkedPIN);
-    void vaihdaSivu();
+    void noMoneyPage();
+    void goodByePage();
     void on_Eteenpain_clicked();
     void on_Taaksepain_clicked();
     void on_Paavalikko_clicked();
+    void on_OhitaMainos_clicked();
+    void on_KatsoMainos_clicked();
 
 private:
     Ui::MainWindow *ui;
@@ -52,13 +57,15 @@ private:
     short time;
     short page;
     short attempts;
+    short withdrawalAmount;
+    short eventsPage;
     QString pincode;
     bool loggedIn;
     QString memberCardId;
     DLLPINCode *objectDLLPINCode;
     DLLSerialPort *objectDLLSerialPort;
     DLLMySQL *objectDLLMySQL;
-    int index;
+    DLLAd *objectDLLAd;
 };
 
 #endif // MAINWINDOW_H

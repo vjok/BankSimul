@@ -44,19 +44,19 @@ QString DLLMySQL::interfaceFunctionShowBalance()
     return objectDLLMySQLEngine->showBalance();
 }
 
-QString DLLMySQL::interfaceFunctionGetAllAccountEvents()
+QString DLLMySQL::interfaceFunctionGetAccountEvent()
 {
-    return objectDLLMySQLEngine->getAllAccountEvents();
-}
-
-QString DLLMySQL::interfaceFunctionGetFiveAccountEvents()
-{
-    return objectDLLMySQLEngine->getFiveAccountEvents();
+    return objectDLLMySQLEngine->getAccountEvent();
 }
 
 void DLLMySQL::interfaceFunctionCashWithdrawal(double amount)
 {
     objectDLLMySQLEngine->cashWithdrawal(amount);
+}
+
+void DLLMySQL::interfaceFunctionCashWithdrawalSkipAd(double amount)
+{
+    objectDLLMySQLEngine->cashWithdrawalSkipAd(amount);
 }
 
 void DLLMySQL::interfaceFunctionShowEvents()

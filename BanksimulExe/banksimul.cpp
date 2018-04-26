@@ -6,17 +6,21 @@ BankSimul::BankSimul(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWind
     ui->setupUi(this); // create instances of widgets
     ui->stackedWidget->setCurrentIndex(0);  // set default page to page-1 (mainmenu)
     timer = new QTimer(this);
-    QObject::connect(timer, SIGNAL(timeout()), this, SLOT(updateTime()));
     timer->stop();  // timer is stopped when in default page
+    objectDLLAd = new DLLAd;
     objectDLLSerialPort = new DLLSerialPort;    //create objects
     objectDLLPINCode = new DLLPINCode;
     objectDLLMySQL = new DLLMySQL;
+    QObject::connect(timer, SIGNAL(timeout()), this, SLOT(updateTime()));
     QObject::connect(objectDLLSerialPort, &DLLSerialPort::returnValue, this, &BankSimul::checkId);  // send read card-id to checkId function
     QObject::connect(objectDLLPINCode, &DLLPINCode::returnPIN, this, &BankSimul::checkPIN); // send pin-code that user inputs to checkPIN function
-    QObject::connect(objectDLLMySQL, &DLLMySQL::sendPage, this, &BankSimul::vaihdaSivu);
+    QObject::connect(objectDLLMySQL, &DLLMySQL::sendPage, this, &BankSimul::noMoneyPage);   // if user doesn't have enough money show errorpage
+    QObject::connect(objectDLLAd, &DLLAd::adIsOver, this, &BankSimul::goodByePage); // when the advert is over go to goodbye page
     objectDLLSerialPort->interfaceFunctionOpenConnection(); // open serial-port connection for RFID-card reader
     attempts = 0;   // Login attempts
     loggedIn = false;   // logged in state
+    withdrawalAmount = 0;   // withdrawal amount
+    eventsPage = 0;
 }
 
 BankSimul::~BankSimul() // Destructor
@@ -26,11 +30,13 @@ BankSimul::~BankSimul() // Destructor
     delete objectDLLMySQL;
     delete objectDLLPINCode;
     delete objectDLLSerialPort;
+    delete objectDLLAd;
     ui = NULL;
     timer = NULL;
     objectDLLMySQL = NULL;
     objectDLLPINCode = NULL;
     objectDLLSerialPort = NULL;
+    objectDLLAd = NULL;
 }
 
 void BankSimul::checkId(QString CardId) // RFID-card check function when card-input
@@ -58,7 +64,7 @@ void BankSimul::checkPIN(QString checkedPIN)
 {
     objectDLLPINCode->interfaceFunctionSetLabel("Syötä Pin-koodi"); // set text "Syötä Pin-koodi" in case it's "Väärä tunnusluku!"
     bool result = objectDLLMySQL->interfaceFunctionLogIn(checkedPIN);   // Database returns true or false
-    if(result)  // if pin-code is correct, close pin-code dialog -> open main atm interface -> set Logged in state as true
+    if(result)  // if pin-code is correct, close pin-code dialog -> open main ATM interface -> set Logged in state as true
     {
         ui->stackedWidget->setCurrentIndex(2);
         objectDLLPINCode->interfaceFunctionCloseDialog();
@@ -92,7 +98,7 @@ void BankSimul::updateTime()    // updateTime function
     timer->start();
     if(time == 0)   // when time is null:
     {
-        if(page == 3 || page == 8 || page == 5) // if user is on page 3, 8 or 5
+        if(page == 3 || page == 9) // if user is on page 3, 9 or 5
         {
             timer->stop();      // stop the timer, login state false, go to default page, close all database connections
             loggedIn = false;
@@ -113,7 +119,7 @@ void BankSimul::updateTime()    // updateTime function
             loggedIn = false;   //necessary?
         }
 
-        else if(page == 9)
+        else if(page == 10) // if user doesn't have enough money, go to main menu
         {
             timer->stop();
             ui->stackedWidget->setCurrentIndex(3);
@@ -159,8 +165,8 @@ void BankSimul::on_NostaRahaa_clicked()
 
 void BankSimul::on_NaytaSaldo_clicked()
 {
-    page = 7;
-    ui->stackedWidget->setCurrentIndex(6);
+    page = 8;
+    ui->stackedWidget->setCurrentIndex(7);
     Timer10();
     QString returnString = objectDLLMySQL->interfaceFunctionShowBalance();
     QStringList balanceList = returnString.split('|');
@@ -182,9 +188,8 @@ void BankSimul::on_NaytaSaldo_clicked()
 
 void BankSimul::on_SelaaTili_clicked()
 {
-    index = 0;
-    page = 6;
-    ui->stackedWidget->setCurrentIndex(5);
+    page = 7;
+    ui->stackedWidget->setCurrentIndex(6);
     Timer10();
     QString returnString = objectDLLMySQL->interfaceFunctionShowBalance();
     QStringList balanceList = returnString.split('|');
@@ -199,79 +204,139 @@ void BankSimul::on_SelaaTili_clicked()
     font.setPointSize(24);
     ui->label1->setFont(font);
     ui->label1->setText(           "1. " + eventList[0] + " " + eventList[1] + " " + eventList[2] + "€ " + eventList[3]
-                                + "\n2. " + eventList[4] + " " + eventList[5] + " " + eventList[6] + "€ " + eventList[7]
-                                + "\n3. " + eventList[8] + " " + eventList[9] + " " + eventList[10] + "€ " + eventList[11]
-                                + "\n4. " + eventList[12] + " " + eventList[13] + " " + eventList[14] + "€ " + eventList[15]
-                                + "\n5. " + eventList[16] + " " + eventList[17] + " " + eventList[18] + "€ " + eventList[19]
-                                + "\n6. " + eventList[20] + " " + eventList[21] + " " + eventList[22] + "€ " + eventList[23]
-                                + "\n7. " + eventList[24] + " " + eventList[25] + " " + eventList[26] + "€ " + eventList[27]
-                                + "\n8. " + eventList[28] + " " + eventList[29] + " " + eventList[30] + "€ " + eventList[31]
-                                + "\n9. " + eventList[32] + " " + eventList[33] + " " + eventList[34] + "€ " + eventList[35]
-                                + "\n10. " + eventList[36] + " " + eventList[37] + " " + eventList[38] + "€ " + eventList[39]);
+                               + "\n2. " + eventList[4] + " " + eventList[5] + " " + eventList[6] + "€ " + eventList[7]
+                               + "\n3. " + eventList[8] + " " + eventList[9] + " " + eventList[10] + "€ " + eventList[11]
+                               + "\n4. " + eventList[12] + " " + eventList[13] + " " + eventList[14] + "€ " + eventList[15]
+                               + "\n5. " + eventList[16] + " " + eventList[17] + " " + eventList[18] + "€ " + eventList[19]
+                               + "\n6. " + eventList[20] + " " + eventList[21] + " " + eventList[22] + "€ " + eventList[23]
+                               + "\n7. " + eventList[24] + " " + eventList[25] + " " + eventList[26] + "€ " + eventList[27]
+                               + "\n8. " + eventList[28] + " " + eventList[29] + " " + eventList[30] + "€ " + eventList[31]
+                               + "\n9. " + eventList[32] + " " + eventList[33] + " " + eventList[34] + "€ " + eventList[35]
+                               + "\n10. " + eventList[36] + " " + eventList[37] + " " + eventList[38] + "€ " + eventList[39]);
 
 }
 
 void BankSimul::on_Eteenpain_clicked()
 {
-    int index;
-    index + 40;
-    page = 6;
-    ui->stackedWidget->setCurrentIndex(5);
+    eventsPage++;
     Timer10();
-    QString returnString = objectDLLMySQL->interfaceFunctionShowBalance();
-    QStringList balanceList = returnString.split('|');
-    QFont font = ui->labelTiliSaldo->font();
-    font.setPointSize(40);
-    ui->labelTiliSaldo->setAlignment(Qt::AlignCenter);
-    ui->labelTiliSaldo->setFont(font);
-    ui->labelTiliSaldo->setText(balanceList[0] + " " + balanceList[1] + "\nSaldo: " + balanceList[2] + "€");
+    if(eventsPage == 1)
+    {
+        QFont font = ui->label1->font();
+        QString eventString = objectDLLMySQL->interfaceFunctionGetAccountEvent();
+        QStringList eventList = eventString.split('|');
+        font.setPointSize(24);
+        ui->label1->setFont(font);
+        ui->label1->setText(           "11. " + eventList[40] + " " + eventList[41] + " " + eventList[42] + "€ " + eventList[43]
+                                   + "\n12. " + eventList[44] + " " + eventList[45] + " " + eventList[46] + "€ " + eventList[47]
+                                   + "\n13. " + eventList[48] + " " + eventList[49] + " " + eventList[50] + "€ " + eventList[51]
+                                   + "\n14. " + eventList[52] + " " + eventList[53] + " " + eventList[54] + "€ " + eventList[55]
+                                   + "\n15. " + eventList[56] + " " + eventList[57] + " " + eventList[58] + "€ " + eventList[59]
+                                   + "\n16. " + eventList[60] + " " + eventList[61] + " " + eventList[62] + "€ " + eventList[63]
+                                   + "\n17. " + eventList[64] + " " + eventList[65] + " " + eventList[66] + "€ " + eventList[67]
+                                   + "\n18. " + eventList[68] + " " + eventList[69] + " " + eventList[70] + "€ " + eventList[71]
+                                   + "\n19. " + eventList[72] + " " + eventList[73] + " " + eventList[74] + "€ " + eventList[75]
+                                   + "\n20. " + eventList[76] + " " + eventList[77] + " " + eventList[78] + "€ " + eventList[79]);
 
-    QString eventString = objectDLLMySQL->interfaceFunctionGetAllAccountEvents();
-    QStringList eventList = eventString.split('|');
-    font.setPointSize(24);
-    ui->label1->setFont(font);
-    ui->label1->setText(           "11. " + eventList[0+index] + " " + eventList[1+index] + " " + eventList[2+index] + "€ " + eventList[3+index]
-                                + "\n12. " + eventList[4+index] + " " + eventList[5+index] + " " + eventList[6+index] + "€ " + eventList[7+index]
-                                + "\n13. " + eventList[8+index] + " " + eventList[9+index] + " " + eventList[10+index] + "€ " + eventList[11+index]
-                                + "\n14. " + eventList[12+index] + " " + eventList[13+index] + " " + eventList[14+index] + "€ " + eventList[15+index]
-                                + "\n15. " + eventList[16+index] + " " + eventList[17+index] + " " + eventList[18+index] + "€ " + eventList[19+index]
-                                + "\n16. " + eventList[20+index] + " " + eventList[21+index] + " " + eventList[22+index] + "€ " + eventList[23+index]
-                                + "\n17. " + eventList[24+index] + " " + eventList[25+index] + " " + eventList[26+index] + "€ " + eventList[27+index]
-                                + "\n18. " + eventList[28+index] + " " + eventList[29+index] + " " + eventList[30+index] + "€ " + eventList[31+index]
-                                + "\n19. " + eventList[32+index] + " " + eventList[33+index] + " " + eventList[34+index] + "€ " + eventList[35+index]
-                                + "\n20. " + eventList[36+index] + " " + eventList[37+index] + " " + eventList[38+index] + "€ " + eventList[39+index]);
-
-
+    }
+    else if(eventsPage == 2)
+    {
+        QFont font = ui->label1->font();
+        QString eventString = objectDLLMySQL->interfaceFunctionGetAccountEvent();
+        QStringList eventList = eventString.split('|');
+        font.setPointSize(24);
+        ui->label1->setFont(font);
+        ui->label1->setText(           "21. " + eventList[80] + " " + eventList[81] + " " + eventList[82] + "€ " + eventList[83]
+                                   + "\n22. " + eventList[84] + " " + eventList[85] + " " + eventList[86] + "€ " + eventList[87]
+                                   + "\n23. " + eventList[88] + " " + eventList[89] + " " + eventList[90] + "€ " + eventList[91]
+                                   + "\n24. " + eventList[92] + " " + eventList[93] + " " + eventList[94] + "€ " + eventList[95]
+                                   + "\n25. " + eventList[96] + " " + eventList[97] + " " + eventList[98] + "€ " + eventList[99]
+                                   + "\n26. " + eventList[100] + " " + eventList[101] + " " + eventList[102] + "€ " + eventList[103]
+                                   + "\n27. " + eventList[104] + " " + eventList[105] + " " + eventList[106] + "€ " + eventList[107]
+                                   + "\n28. " + eventList[108] + " " + eventList[109] + " " + eventList[110] + "€ " + eventList[111]
+                                   + "\n29. " + eventList[112] + " " + eventList[113] + " " + eventList[114] + "€ " + eventList[115]
+                                   + "\n30. " + eventList[116] + " " + eventList[117] + " " + eventList[118] + "€ " + eventList[119]);
+    }
+    else if(eventsPage == 3)
+    {
+        QFont font = ui->label1->font();
+        QString eventString = objectDLLMySQL->interfaceFunctionGetAccountEvent();
+        QStringList eventList = eventString.split('|');
+        font.setPointSize(24);
+        ui->label1->setFont(font);
+        ui->label1->setText(           "31. " + eventList[120] + " " + eventList[121] + " " + eventList[122] + "€ " + eventList[123]
+                                   + "\n32. " + eventList[124] + " " + eventList[125] + " " + eventList[126] + "€ " + eventList[127]
+                                   + "\n33. " + eventList[128] + " " + eventList[129] + " " + eventList[130] + "€ " + eventList[131]
+                                   + "\n34. " + eventList[132] + " " + eventList[133] + " " + eventList[134] + "€ " + eventList[135]
+                                   + "\n35. " + eventList[136] + " " + eventList[137] + " " + eventList[138] + "€ " + eventList[139]
+                                   + "\n36. " + eventList[140] + " " + eventList[141] + " " + eventList[142] + "€ " + eventList[143]
+                                   + "\n37. " + eventList[144] + " " + eventList[145] + " " + eventList[146] + "€ " + eventList[147]
+                                   + "\n38. " + eventList[148] + " " + eventList[149] + " " + eventList[150] + "€ " + eventList[151]
+                                   + "\n39. " + eventList[152] + " " + eventList[153] + " " + eventList[154] + "€ " + eventList[155]
+                                   + "\n40. " + eventList[156] + " " + eventList[157] + " " + eventList[158] + "€ " + eventList[159]);
+    }
 }
 
 void BankSimul::on_Taaksepain_clicked()
 {
-    index + 40;
-    page = 6;
-    ui->stackedWidget->setCurrentIndex(5);
+    eventsPage--;
     Timer10();
-    QString returnString = objectDLLMySQL->interfaceFunctionShowBalance();
-    QStringList balanceList = returnString.split('|');
-    QFont font = ui->labelTiliSaldo->font();
-    font.setPointSize(40);
-    ui->labelTiliSaldo->setAlignment(Qt::AlignCenter);
-    ui->labelTiliSaldo->setFont(font);
-    ui->labelTiliSaldo->setText(balanceList[0] + " " + balanceList[1] + "\nSaldo: " + balanceList[2] + "€");
+    if(eventsPage == 0)
+    {
+        QFont font = ui->label1->font();
+        QString eventString = objectDLLMySQL->interfaceFunctionGetAccountEvent();
+        QStringList eventList = eventString.split('|');
+        font.setPointSize(24);
+        ui->label1->setFont(font);
+        ui->label1->setText(           "1. " + eventList[0] + " " + eventList[1] + " " + eventList[2] + "€ " + eventList[3]
+                                   + "\n2. " + eventList[4] + " " + eventList[5] + " " + eventList[6] + "€ " + eventList[7]
+                                   + "\n3. " + eventList[8] + " " + eventList[9] + " " + eventList[10] + "€ " + eventList[11]
+                                   + "\n4. " + eventList[12] + " " + eventList[13] + " " + eventList[14] + "€ " + eventList[15]
+                                   + "\n5. " + eventList[16] + " " + eventList[17] + " " + eventList[18] + "€ " + eventList[19]
+                                   + "\n6. " + eventList[20] + " " + eventList[21] + " " + eventList[22] + "€ " + eventList[23]
+                                   + "\n7. " + eventList[24] + " " + eventList[25] + " " + eventList[26] + "€ " + eventList[27]
+                                   + "\n8. " + eventList[28] + " " + eventList[29] + " " + eventList[30] + "€ " + eventList[31]
+                                   + "\n9. " + eventList[32] + " " + eventList[33] + " " + eventList[34] + "€ " + eventList[35]
+                                   + "\n10. " + eventList[36] + " " + eventList[37] + " " + eventList[38] + "€ " + eventList[39]);
 
-    QString eventString = objectDLLMySQL->interfaceFunctionGetAllAccountEvents();
-    QStringList eventList = eventString.split('|');
-    font.setPointSize(24);
-    ui->label1->setFont(font);
-    ui->label1->setText(           "11. " + eventList[0+index] + " " + eventList[1+index] + " " + eventList[2+index] + "€ " + eventList[3+index]
-                                + "\n12. " + eventList[4+index] + " " + eventList[5+index] + " " + eventList[6+index] + "€ " + eventList[7+index]
-                                + "\n13. " + eventList[8+index] + " " + eventList[9+index] + " " + eventList[10+index] + "€ " + eventList[11+index]
-                                + "\n14. " + eventList[12+index] + " " + eventList[13+index] + " " + eventList[14+index] + "€ " + eventList[15+index]
-                                + "\n15. " + eventList[16+index] + " " + eventList[17+index] + " " + eventList[18+index] + "€ " + eventList[19+index]
-                                + "\n16. " + eventList[20+index] + " " + eventList[21+index] + " " + eventList[22+index] + "€ " + eventList[23+index]
-                                + "\n17. " + eventList[24+index] + " " + eventList[25+index] + " " + eventList[26+index] + "€ " + eventList[27+index]
-                                + "\n18. " + eventList[28+index] + " " + eventList[29+index] + " " + eventList[30+index] + "€ " + eventList[31+index]
-                                + "\n19. " + eventList[32+index] + " " + eventList[33+index] + " " + eventList[34+index] + "€ " + eventList[35+index]
-                                + "\n20. " + eventList[36+index] + " " + eventList[37+index] + " " + eventList[38+index] + "€ " + eventList[39+index]);
+    }
+    else if(eventsPage == 1)
+    {
+        QFont font = ui->label1->font();
+        QString eventString = objectDLLMySQL->interfaceFunctionGetAccountEvent();
+        QStringList eventList = eventString.split('|');
+        font.setPointSize(24);
+        ui->label1->setFont(font);
+        ui->label1->setText(           "11. " + eventList[40] + " " + eventList[41] + " " + eventList[42] + "€ " + eventList[43]
+                                   + "\n12. " + eventList[44] + " " + eventList[45] + " " + eventList[46] + "€ " + eventList[47]
+                                   + "\n13. " + eventList[48] + " " + eventList[49] + " " + eventList[50] + "€ " + eventList[51]
+                                   + "\n14. " + eventList[52] + " " + eventList[53] + " " + eventList[54] + "€ " + eventList[55]
+                                   + "\n15. " + eventList[56] + " " + eventList[57] + " " + eventList[58] + "€ " + eventList[59]
+                                   + "\n16. " + eventList[60] + " " + eventList[61] + " " + eventList[62] + "€ " + eventList[63]
+                                   + "\n17. " + eventList[64] + " " + eventList[65] + " " + eventList[66] + "€ " + eventList[67]
+                                   + "\n18. " + eventList[68] + " " + eventList[69] + " " + eventList[70] + "€ " + eventList[71]
+                                   + "\n19. " + eventList[72] + " " + eventList[73] + " " + eventList[74] + "€ " + eventList[75]
+                                   + "\n20. " + eventList[76] + " " + eventList[77] + " " + eventList[78] + "€ " + eventList[79]);
+    }
+
+    else if(eventsPage == 2)
+    {
+        QFont font = ui->label1->font();
+        QString eventString = objectDLLMySQL->interfaceFunctionGetAccountEvent();
+        QStringList eventList = eventString.split('|');
+        font.setPointSize(24);
+        ui->label1->setFont(font);
+        ui->label1->setText(           "21. " + eventList[80] + " " + eventList[81] + " " + eventList[82] + "€ " + eventList[83]
+                                   + "\n22. " + eventList[84] + " " + eventList[85] + " " + eventList[86] + "€ " + eventList[87]
+                                   + "\n23. " + eventList[88] + " " + eventList[89] + " " + eventList[90] + "€ " + eventList[91]
+                                   + "\n24. " + eventList[92] + " " + eventList[93] + " " + eventList[94] + "€ " + eventList[95]
+                                   + "\n25. " + eventList[96] + " " + eventList[97] + " " + eventList[98] + "€ " + eventList[99]
+                                   + "\n26. " + eventList[100] + " " + eventList[101] + " " + eventList[102] + "€ " + eventList[103]
+                                   + "\n27. " + eventList[104] + " " + eventList[105] + " " + eventList[106] + "€ " + eventList[107]
+                                   + "\n28. " + eventList[108] + " " + eventList[109] + " " + eventList[110] + "€ " + eventList[111]
+                                   + "\n29. " + eventList[112] + " " + eventList[113] + " " + eventList[114] + "€ " + eventList[115]
+                                   + "\n30. " + eventList[116] + " " + eventList[117] + " " + eventList[118] + "€ " + eventList[119]);
+    }
 
 }
 
@@ -286,52 +351,50 @@ void BankSimul::on_KirjauduUlos_clicked()   // logout button clicked:
 
 void BankSimul::on_Nosto20e_clicked()
 {
+    withdrawalAmount = 20;
     page = 5;
     ui->stackedWidget->setCurrentIndex(4);
-    Timer30();
-    objectDLLMySQL->interfaceFunctionCashWithdrawal(20.00);
+    Timer10();
 }
 
 void BankSimul::on_Nosto40e_clicked()
 {
+    withdrawalAmount = 40;
     page = 5;
     ui->stackedWidget->setCurrentIndex(4);
-    Timer30();
-    objectDLLMySQL->interfaceFunctionCashWithdrawal(40.00);
-
+    Timer10();
 }
 
 void BankSimul::on_Nosto60e_clicked()
 {
+    withdrawalAmount = 60;
     page = 5;
     ui->stackedWidget->setCurrentIndex(4);
-    Timer30();
-    objectDLLMySQL->interfaceFunctionCashWithdrawal(60.00);
-
+    Timer10();
 }
 
 void BankSimul::on_Nosto100e_clicked()
 {
+    withdrawalAmount = 100;
     page = 5;
     ui->stackedWidget->setCurrentIndex(4);
-    Timer30();
-    objectDLLMySQL->interfaceFunctionCashWithdrawal(100.00);
+    Timer10();
 }
 
 void BankSimul::on_Nosto200e_clicked()
 {
+    withdrawalAmount = 200;
     page = 5;
     ui->stackedWidget->setCurrentIndex(4);
-    Timer30();
-    objectDLLMySQL->interfaceFunctionCashWithdrawal(200.01);
+    Timer10();
 }
 
 void BankSimul::on_Nosto500e_clicked()
 {
+    withdrawalAmount = 500;
     page = 5;
     ui->stackedWidget->setCurrentIndex(4);
-    Timer30();
-    objectDLLMySQL->interfaceFunctionCashWithdrawal(500.00);
+    Timer10();
 }
 
 void BankSimul::on_Peruuta_clicked()
@@ -341,7 +404,84 @@ void BankSimul::on_Peruuta_clicked()
     Timer30();
 }
 
-void BankSimul::vaihdaSivu()
+void BankSimul::on_OhitaMainos_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(5);
+
+    if(withdrawalAmount == 20)
+    {
+        objectDLLMySQL->interfaceFunctionCashWithdrawalSkipAd(20 * 1.10);
+    }
+    else if(withdrawalAmount == 40)
+    {
+        objectDLLMySQL->interfaceFunctionCashWithdrawalSkipAd(40 * 1.10);
+    }
+    else if(withdrawalAmount == 60)
+    {
+        objectDLLMySQL->interfaceFunctionCashWithdrawalSkipAd(60 * 1.10);
+    }
+    else if(withdrawalAmount == 100)
+    {
+        objectDLLMySQL->interfaceFunctionCashWithdrawalSkipAd(100 * 1.10);
+    }
+    else if(withdrawalAmount == 200)
+    {
+        objectDLLMySQL->interfaceFunctionCashWithdrawalSkipAd(200 * 1.10);
+    }
+    else if(withdrawalAmount == 500)
+    {
+        objectDLLMySQL->interfaceFunctionCashWithdrawalSkipAd(500 * 1.10);
+    }
+}
+
+void BankSimul::on_KatsoMainos_clicked()
+{
+    if(withdrawalAmount == 20)
+    {
+        objectDLLMySQL->interfaceFunctionCashWithdrawal(20.00);
+        objectDLLAd->interfaceFunctionControlShowAd10();
+        timer->stop();
+    }
+    else if(withdrawalAmount == 40)
+    {
+        objectDLLMySQL->interfaceFunctionCashWithdrawal(40.00);
+        objectDLLAd->interfaceFunctionControlShowAd20();
+        timer->stop();
+    }
+    else if(withdrawalAmount == 60)
+    {
+        objectDLLMySQL->interfaceFunctionCashWithdrawal(60.00);
+        objectDLLAd->interfaceFunctionControlShowAd30();
+        timer->stop();
+    }
+    else if(withdrawalAmount == 100)
+    {
+        objectDLLMySQL->interfaceFunctionCashWithdrawal(100.00);
+        objectDLLAd->interfaceFunctionControlShowAd40();
+        timer->stop();
+    }
+    else if(withdrawalAmount == 200)
+    {
+        objectDLLMySQL->interfaceFunctionCashWithdrawal(200.00);
+        objectDLLAd->interfaceFunctionControlShowAd50();
+        timer->stop();
+    }
+    else if(withdrawalAmount == 500)
+    {
+        objectDLLMySQL->interfaceFunctionCashWithdrawal(500.00);
+        objectDLLAd->interfaceFunctionControlShowAd60();
+        timer->stop();
+    }
+}
+
+void BankSimul::noMoneyPage()
+{
+    page = 10;
+    ui->stackedWidget->setCurrentIndex(9);
+    Timer10();
+}
+
+void BankSimul::goodByePage()
 {
     page = 9;
     ui->stackedWidget->setCurrentIndex(8);
@@ -350,8 +490,8 @@ void BankSimul::vaihdaSivu()
 
 void BankSimul::on_Jatka_clicked()
 {
-    page = 8;
-    ui->stackedWidget->setCurrentIndex(7);
+    page = 9;
+    ui->stackedWidget->setCurrentIndex(8);
     Timer10();
 }
 
@@ -360,6 +500,7 @@ void BankSimul::on_Sulje_clicked()
     page = 3;
     ui->stackedWidget->setCurrentIndex(2);
     Timer30();
+    eventsPage = 0;
 }
 
 void BankSimul::on_Sulje_2_clicked()

@@ -108,10 +108,7 @@ release/moc_predefs.h: C:/Qt/5.10.0/mingw53_32/mkspecs/features/data/dummy.cpp
 compiler_moc_header_make_all: release/moc_dllpincode.cpp release/moc_dllpincodeengine.cpp
 compiler_moc_header_clean:
 	-$(DEL_FILE) release\moc_dllpincode.cpp release\moc_dllpincodeengine.cpp
-release/moc_dllpincode.cpp: C:/Qt/5.10.0/mingw53_32/include/QtWidgets/QWidget \
-		C:/Qt/5.10.0/mingw53_32/include/QtWidgets/qwidget.h \
-		C:/Qt/5.10.0/mingw53_32/include/QtWidgets/qtwidgetsglobal.h \
-		C:/Qt/5.10.0/mingw53_32/include/QtGui/qtguiglobal.h \
+release/moc_dllpincode.cpp: ../DLLPINCode/dllpincode_global.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qglobal.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qconfig-bootstrapped.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qconfig.h \
@@ -133,23 +130,27 @@ release/moc_dllpincode.cpp: C:/Qt/5.10.0/mingw53_32/include/QtWidgets/QWidget \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qmutex.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qnumeric.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qversiontagging.h \
+		../DLLPINCode/dllpincodeengine.h \
+		C:/Qt/5.10.0/mingw53_32/include/QtWidgets/QApplication \
+		C:/Qt/5.10.0/mingw53_32/include/QtWidgets/qapplication.h \
+		C:/Qt/5.10.0/mingw53_32/include/QtWidgets/qtwidgetsglobal.h \
+		C:/Qt/5.10.0/mingw53_32/include/QtGui/qtguiglobal.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtGui/qtgui-config.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtWidgets/qtwidgets-config.h \
-		C:/Qt/5.10.0/mingw53_32/include/QtGui/qwindowdefs.h \
-		C:/Qt/5.10.0/mingw53_32/include/QtCore/qobjectdefs.h \
-		C:/Qt/5.10.0/mingw53_32/include/QtCore/qnamespace.h \
-		C:/Qt/5.10.0/mingw53_32/include/QtCore/qobjectdefs_impl.h \
-		C:/Qt/5.10.0/mingw53_32/include/QtGui/qwindowdefs_win.h \
-		C:/Qt/5.10.0/mingw53_32/include/QtCore/qobject.h \
+		C:/Qt/5.10.0/mingw53_32/include/QtCore/qcoreapplication.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qstring.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qchar.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qbytearray.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qrefcount.h \
+		C:/Qt/5.10.0/mingw53_32/include/QtCore/qnamespace.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qarraydata.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qstringliteral.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qstringalgorithms.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qstringview.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qstringbuilder.h \
+		C:/Qt/5.10.0/mingw53_32/include/QtCore/qobject.h \
+		C:/Qt/5.10.0/mingw53_32/include/QtCore/qobjectdefs.h \
+		C:/Qt/5.10.0/mingw53_32/include/QtCore/qobjectdefs_impl.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qlist.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qalgorithms.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qiterator.h \
@@ -165,11 +166,17 @@ release/moc_dllpincode.cpp: C:/Qt/5.10.0/mingw53_32/include/QtWidgets/QWidget \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qvarlengtharray.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qcontainerfwd.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qobject_impl.h \
+		C:/Qt/5.10.0/mingw53_32/include/QtCore/qeventloop.h \
+		C:/Qt/5.10.0/mingw53_32/include/QtGui/qwindowdefs.h \
+		C:/Qt/5.10.0/mingw53_32/include/QtGui/qwindowdefs_win.h \
+		C:/Qt/5.10.0/mingw53_32/include/QtCore/qpoint.h \
+		C:/Qt/5.10.0/mingw53_32/include/QtCore/qsize.h \
+		C:/Qt/5.10.0/mingw53_32/include/QtGui/qcursor.h \
+		C:/Qt/5.10.0/mingw53_32/include/QtWidgets/qdesktopwidget.h \
+		C:/Qt/5.10.0/mingw53_32/include/QtWidgets/qwidget.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qmargins.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtGui/qpaintdevice.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qrect.h \
-		C:/Qt/5.10.0/mingw53_32/include/QtCore/qsize.h \
-		C:/Qt/5.10.0/mingw53_32/include/QtCore/qpoint.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtGui/qpalette.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtGui/qcolor.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtGui/qrgb.h \
@@ -195,7 +202,6 @@ release/moc_dllpincode.cpp: C:/Qt/5.10.0/mingw53_32/include/QtWidgets/QWidget \
 		C:/Qt/5.10.0/mingw53_32/include/QtGui/qfontmetrics.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtGui/qfontinfo.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtWidgets/qsizepolicy.h \
-		C:/Qt/5.10.0/mingw53_32/include/QtGui/qcursor.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtGui/qkeysequence.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtGui/qevent.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qvariant.h \
@@ -211,30 +217,23 @@ release/moc_dllpincode.cpp: C:/Qt/5.10.0/mingw53_32/include/QtWidgets/QWidget \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qfiledevice.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtGui/qvector2d.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtGui/qtouchdevice.h \
-		C:/Qt/5.10.0/mingw53_32/include/QtCore/QDebug \
-		../DLLPINCode/dllpincode_global.h \
-		../DLLPINCode/dllpincodeengine.h \
+		C:/Qt/5.10.0/mingw53_32/include/QtGui/qguiapplication.h \
+		C:/Qt/5.10.0/mingw53_32/include/QtGui/qinputmethod.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtWidgets/QDialog \
 		C:/Qt/5.10.0/mingw53_32/include/QtWidgets/qdialog.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/QString \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/QTimer \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qtimer.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qbasictimer.h \
-		C:/Qt/5.10.0/mingw53_32/include/QtWidgets/QApplication \
-		C:/Qt/5.10.0/mingw53_32/include/QtWidgets/qapplication.h \
-		C:/Qt/5.10.0/mingw53_32/include/QtCore/qcoreapplication.h \
-		C:/Qt/5.10.0/mingw53_32/include/QtCore/qeventloop.h \
-		C:/Qt/5.10.0/mingw53_32/include/QtWidgets/qdesktopwidget.h \
-		C:/Qt/5.10.0/mingw53_32/include/QtGui/qguiapplication.h \
-		C:/Qt/5.10.0/mingw53_32/include/QtGui/qinputmethod.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtWidgets/QDesktopWidget \
+		C:/Qt/5.10.0/mingw53_32/include/QtWidgets/QWidget \
 		../DLLPINCode/dllpincode.h \
 		release/moc_predefs.h \
 		C:/Qt/5.10.0/mingw53_32/bin/moc.exe
-	C:\Qt\5.10.0\mingw53_32\bin\moc.exe $(DEFINES) --include release/moc_predefs.h -IC:/Qt/5.10.0/mingw53_32/mkspecs/win32-g++ -I"C:/Users/Admin/OneDrive - Oulun ammattikorkeakoulu/OhjelmistokehitysProjekti/BanksimulExe_18_04_2018/BankSimul/DLLPINCode" -IC:/Qt/5.10.0/mingw53_32/include -IC:/Qt/5.10.0/mingw53_32/include/QtWidgets -IC:/Qt/5.10.0/mingw53_32/include/QtGui -IC:/Qt/5.10.0/mingw53_32/include/QtANGLE -IC:/Qt/5.10.0/mingw53_32/include/QtSerialPort -IC:/Qt/5.10.0/mingw53_32/include/QtCore -I. -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++ -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward ..\DLLPINCode\dllpincode.h -o release\moc_dllpincode.cpp
+	C:\Qt\5.10.0\mingw53_32\bin\moc.exe $(DEFINES) --include release/moc_predefs.h -IC:/Qt/5.10.0/mingw53_32/mkspecs/win32-g++ -I"C:/Users/Admin/OneDrive - Oulun ammattikorkeakoulu/OhjelmistokehitysProjekti/BanksimulExe_25_04_2018/DLLPINCode" -IC:/Qt/5.10.0/mingw53_32/include -IC:/Qt/5.10.0/mingw53_32/include/QtWidgets -IC:/Qt/5.10.0/mingw53_32/include/QtGui -IC:/Qt/5.10.0/mingw53_32/include/QtANGLE -IC:/Qt/5.10.0/mingw53_32/include/QtSerialPort -IC:/Qt/5.10.0/mingw53_32/include/QtCore -I. -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++ -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward ..\DLLPINCode\dllpincode.h -o release\moc_dllpincode.cpp
 
-release/moc_dllpincodeengine.cpp: C:/Qt/5.10.0/mingw53_32/include/QtWidgets/QDialog \
-		C:/Qt/5.10.0/mingw53_32/include/QtWidgets/qdialog.h \
+release/moc_dllpincodeengine.cpp: C:/Qt/5.10.0/mingw53_32/include/QtWidgets/QApplication \
+		C:/Qt/5.10.0/mingw53_32/include/QtWidgets/qapplication.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtWidgets/qtwidgetsglobal.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtGui/qtguiglobal.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qglobal.h \
@@ -260,22 +259,20 @@ release/moc_dllpincodeengine.cpp: C:/Qt/5.10.0/mingw53_32/include/QtWidgets/QDia
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qversiontagging.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtGui/qtgui-config.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtWidgets/qtwidgets-config.h \
-		C:/Qt/5.10.0/mingw53_32/include/QtWidgets/qwidget.h \
-		C:/Qt/5.10.0/mingw53_32/include/QtGui/qwindowdefs.h \
-		C:/Qt/5.10.0/mingw53_32/include/QtCore/qobjectdefs.h \
-		C:/Qt/5.10.0/mingw53_32/include/QtCore/qnamespace.h \
-		C:/Qt/5.10.0/mingw53_32/include/QtCore/qobjectdefs_impl.h \
-		C:/Qt/5.10.0/mingw53_32/include/QtGui/qwindowdefs_win.h \
-		C:/Qt/5.10.0/mingw53_32/include/QtCore/qobject.h \
+		C:/Qt/5.10.0/mingw53_32/include/QtCore/qcoreapplication.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qstring.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qchar.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qbytearray.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qrefcount.h \
+		C:/Qt/5.10.0/mingw53_32/include/QtCore/qnamespace.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qarraydata.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qstringliteral.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qstringalgorithms.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qstringview.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qstringbuilder.h \
+		C:/Qt/5.10.0/mingw53_32/include/QtCore/qobject.h \
+		C:/Qt/5.10.0/mingw53_32/include/QtCore/qobjectdefs.h \
+		C:/Qt/5.10.0/mingw53_32/include/QtCore/qobjectdefs_impl.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qlist.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qalgorithms.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qiterator.h \
@@ -291,11 +288,17 @@ release/moc_dllpincodeengine.cpp: C:/Qt/5.10.0/mingw53_32/include/QtWidgets/QDia
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qvarlengtharray.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qcontainerfwd.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qobject_impl.h \
+		C:/Qt/5.10.0/mingw53_32/include/QtCore/qeventloop.h \
+		C:/Qt/5.10.0/mingw53_32/include/QtGui/qwindowdefs.h \
+		C:/Qt/5.10.0/mingw53_32/include/QtGui/qwindowdefs_win.h \
+		C:/Qt/5.10.0/mingw53_32/include/QtCore/qpoint.h \
+		C:/Qt/5.10.0/mingw53_32/include/QtCore/qsize.h \
+		C:/Qt/5.10.0/mingw53_32/include/QtGui/qcursor.h \
+		C:/Qt/5.10.0/mingw53_32/include/QtWidgets/qdesktopwidget.h \
+		C:/Qt/5.10.0/mingw53_32/include/QtWidgets/qwidget.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qmargins.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtGui/qpaintdevice.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qrect.h \
-		C:/Qt/5.10.0/mingw53_32/include/QtCore/qsize.h \
-		C:/Qt/5.10.0/mingw53_32/include/QtCore/qpoint.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtGui/qpalette.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtGui/qcolor.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtGui/qrgb.h \
@@ -321,7 +324,6 @@ release/moc_dllpincodeengine.cpp: C:/Qt/5.10.0/mingw53_32/include/QtWidgets/QDia
 		C:/Qt/5.10.0/mingw53_32/include/QtGui/qfontmetrics.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtGui/qfontinfo.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtWidgets/qsizepolicy.h \
-		C:/Qt/5.10.0/mingw53_32/include/QtGui/qcursor.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtGui/qkeysequence.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtGui/qevent.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qvariant.h \
@@ -337,22 +339,18 @@ release/moc_dllpincodeengine.cpp: C:/Qt/5.10.0/mingw53_32/include/QtWidgets/QDia
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qfiledevice.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtGui/qvector2d.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtGui/qtouchdevice.h \
+		C:/Qt/5.10.0/mingw53_32/include/QtGui/qguiapplication.h \
+		C:/Qt/5.10.0/mingw53_32/include/QtGui/qinputmethod.h \
+		C:/Qt/5.10.0/mingw53_32/include/QtWidgets/QDialog \
+		C:/Qt/5.10.0/mingw53_32/include/QtWidgets/qdialog.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/QString \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/QTimer \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qtimer.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qbasictimer.h \
-		C:/Qt/5.10.0/mingw53_32/include/QtWidgets/QApplication \
-		C:/Qt/5.10.0/mingw53_32/include/QtWidgets/qapplication.h \
-		C:/Qt/5.10.0/mingw53_32/include/QtCore/qcoreapplication.h \
-		C:/Qt/5.10.0/mingw53_32/include/QtCore/qeventloop.h \
-		C:/Qt/5.10.0/mingw53_32/include/QtWidgets/qdesktopwidget.h \
-		C:/Qt/5.10.0/mingw53_32/include/QtGui/qguiapplication.h \
-		C:/Qt/5.10.0/mingw53_32/include/QtGui/qinputmethod.h \
-		C:/Qt/5.10.0/mingw53_32/include/QtCore/QDebug \
 		../DLLPINCode/dllpincodeengine.h \
 		release/moc_predefs.h \
 		C:/Qt/5.10.0/mingw53_32/bin/moc.exe
-	C:\Qt\5.10.0\mingw53_32\bin\moc.exe $(DEFINES) --include release/moc_predefs.h -IC:/Qt/5.10.0/mingw53_32/mkspecs/win32-g++ -I"C:/Users/Admin/OneDrive - Oulun ammattikorkeakoulu/OhjelmistokehitysProjekti/BanksimulExe_18_04_2018/BankSimul/DLLPINCode" -IC:/Qt/5.10.0/mingw53_32/include -IC:/Qt/5.10.0/mingw53_32/include/QtWidgets -IC:/Qt/5.10.0/mingw53_32/include/QtGui -IC:/Qt/5.10.0/mingw53_32/include/QtANGLE -IC:/Qt/5.10.0/mingw53_32/include/QtSerialPort -IC:/Qt/5.10.0/mingw53_32/include/QtCore -I. -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++ -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward ..\DLLPINCode\dllpincodeengine.h -o release\moc_dllpincodeengine.cpp
+	C:\Qt\5.10.0\mingw53_32\bin\moc.exe $(DEFINES) --include release/moc_predefs.h -IC:/Qt/5.10.0/mingw53_32/mkspecs/win32-g++ -I"C:/Users/Admin/OneDrive - Oulun ammattikorkeakoulu/OhjelmistokehitysProjekti/BanksimulExe_25_04_2018/DLLPINCode" -IC:/Qt/5.10.0/mingw53_32/include -IC:/Qt/5.10.0/mingw53_32/include/QtWidgets -IC:/Qt/5.10.0/mingw53_32/include/QtGui -IC:/Qt/5.10.0/mingw53_32/include/QtANGLE -IC:/Qt/5.10.0/mingw53_32/include/QtSerialPort -IC:/Qt/5.10.0/mingw53_32/include/QtCore -I. -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++ -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward ..\DLLPINCode\dllpincodeengine.h -o release\moc_dllpincodeengine.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
@@ -378,10 +376,7 @@ compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean compiler_ui
 ####### Compile
 
 release/dllpincode.o: ../DLLPINCode/dllpincode.cpp ../DLLPINCode/dllpincode.h \
-		C:/Qt/5.10.0/mingw53_32/include/QtWidgets/QWidget \
-		C:/Qt/5.10.0/mingw53_32/include/QtWidgets/qwidget.h \
-		C:/Qt/5.10.0/mingw53_32/include/QtWidgets/qtwidgetsglobal.h \
-		C:/Qt/5.10.0/mingw53_32/include/QtGui/qtguiglobal.h \
+		../DLLPINCode/dllpincode_global.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qglobal.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qconfig-bootstrapped.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qconfig.h \
@@ -403,23 +398,27 @@ release/dllpincode.o: ../DLLPINCode/dllpincode.cpp ../DLLPINCode/dllpincode.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qmutex.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qnumeric.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qversiontagging.h \
+		../DLLPINCode/dllpincodeengine.h \
+		C:/Qt/5.10.0/mingw53_32/include/QtWidgets/QApplication \
+		C:/Qt/5.10.0/mingw53_32/include/QtWidgets/qapplication.h \
+		C:/Qt/5.10.0/mingw53_32/include/QtWidgets/qtwidgetsglobal.h \
+		C:/Qt/5.10.0/mingw53_32/include/QtGui/qtguiglobal.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtGui/qtgui-config.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtWidgets/qtwidgets-config.h \
-		C:/Qt/5.10.0/mingw53_32/include/QtGui/qwindowdefs.h \
-		C:/Qt/5.10.0/mingw53_32/include/QtCore/qobjectdefs.h \
-		C:/Qt/5.10.0/mingw53_32/include/QtCore/qnamespace.h \
-		C:/Qt/5.10.0/mingw53_32/include/QtCore/qobjectdefs_impl.h \
-		C:/Qt/5.10.0/mingw53_32/include/QtGui/qwindowdefs_win.h \
-		C:/Qt/5.10.0/mingw53_32/include/QtCore/qobject.h \
+		C:/Qt/5.10.0/mingw53_32/include/QtCore/qcoreapplication.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qstring.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qchar.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qbytearray.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qrefcount.h \
+		C:/Qt/5.10.0/mingw53_32/include/QtCore/qnamespace.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qarraydata.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qstringliteral.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qstringalgorithms.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qstringview.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qstringbuilder.h \
+		C:/Qt/5.10.0/mingw53_32/include/QtCore/qobject.h \
+		C:/Qt/5.10.0/mingw53_32/include/QtCore/qobjectdefs.h \
+		C:/Qt/5.10.0/mingw53_32/include/QtCore/qobjectdefs_impl.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qlist.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qalgorithms.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qiterator.h \
@@ -435,11 +434,17 @@ release/dllpincode.o: ../DLLPINCode/dllpincode.cpp ../DLLPINCode/dllpincode.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qvarlengtharray.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qcontainerfwd.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qobject_impl.h \
+		C:/Qt/5.10.0/mingw53_32/include/QtCore/qeventloop.h \
+		C:/Qt/5.10.0/mingw53_32/include/QtGui/qwindowdefs.h \
+		C:/Qt/5.10.0/mingw53_32/include/QtGui/qwindowdefs_win.h \
+		C:/Qt/5.10.0/mingw53_32/include/QtCore/qpoint.h \
+		C:/Qt/5.10.0/mingw53_32/include/QtCore/qsize.h \
+		C:/Qt/5.10.0/mingw53_32/include/QtGui/qcursor.h \
+		C:/Qt/5.10.0/mingw53_32/include/QtWidgets/qdesktopwidget.h \
+		C:/Qt/5.10.0/mingw53_32/include/QtWidgets/qwidget.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qmargins.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtGui/qpaintdevice.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qrect.h \
-		C:/Qt/5.10.0/mingw53_32/include/QtCore/qsize.h \
-		C:/Qt/5.10.0/mingw53_32/include/QtCore/qpoint.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtGui/qpalette.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtGui/qcolor.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtGui/qrgb.h \
@@ -465,7 +470,6 @@ release/dllpincode.o: ../DLLPINCode/dllpincode.cpp ../DLLPINCode/dllpincode.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtGui/qfontmetrics.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtGui/qfontinfo.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtWidgets/qsizepolicy.h \
-		C:/Qt/5.10.0/mingw53_32/include/QtGui/qcursor.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtGui/qkeysequence.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtGui/qevent.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qvariant.h \
@@ -481,28 +485,21 @@ release/dllpincode.o: ../DLLPINCode/dllpincode.cpp ../DLLPINCode/dllpincode.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qfiledevice.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtGui/qvector2d.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtGui/qtouchdevice.h \
-		C:/Qt/5.10.0/mingw53_32/include/QtCore/QDebug \
-		../DLLPINCode/dllpincode_global.h \
-		../DLLPINCode/dllpincodeengine.h \
+		C:/Qt/5.10.0/mingw53_32/include/QtGui/qguiapplication.h \
+		C:/Qt/5.10.0/mingw53_32/include/QtGui/qinputmethod.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtWidgets/QDialog \
 		C:/Qt/5.10.0/mingw53_32/include/QtWidgets/qdialog.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/QString \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/QTimer \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qtimer.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qbasictimer.h \
-		C:/Qt/5.10.0/mingw53_32/include/QtWidgets/QApplication \
-		C:/Qt/5.10.0/mingw53_32/include/QtWidgets/qapplication.h \
-		C:/Qt/5.10.0/mingw53_32/include/QtCore/qcoreapplication.h \
-		C:/Qt/5.10.0/mingw53_32/include/QtCore/qeventloop.h \
-		C:/Qt/5.10.0/mingw53_32/include/QtWidgets/qdesktopwidget.h \
-		C:/Qt/5.10.0/mingw53_32/include/QtGui/qguiapplication.h \
-		C:/Qt/5.10.0/mingw53_32/include/QtGui/qinputmethod.h \
-		C:/Qt/5.10.0/mingw53_32/include/QtWidgets/QDesktopWidget
+		C:/Qt/5.10.0/mingw53_32/include/QtWidgets/QDesktopWidget \
+		C:/Qt/5.10.0/mingw53_32/include/QtWidgets/QWidget
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\dllpincode.o ..\DLLPINCode\dllpincode.cpp
 
 release/dllpincodeengine.o: ../DLLPINCode/dllpincodeengine.cpp ../DLLPINCode/dllpincodeengine.h \
-		C:/Qt/5.10.0/mingw53_32/include/QtWidgets/QDialog \
-		C:/Qt/5.10.0/mingw53_32/include/QtWidgets/qdialog.h \
+		C:/Qt/5.10.0/mingw53_32/include/QtWidgets/QApplication \
+		C:/Qt/5.10.0/mingw53_32/include/QtWidgets/qapplication.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtWidgets/qtwidgetsglobal.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtGui/qtguiglobal.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qglobal.h \
@@ -528,22 +525,20 @@ release/dllpincodeengine.o: ../DLLPINCode/dllpincodeengine.cpp ../DLLPINCode/dll
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qversiontagging.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtGui/qtgui-config.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtWidgets/qtwidgets-config.h \
-		C:/Qt/5.10.0/mingw53_32/include/QtWidgets/qwidget.h \
-		C:/Qt/5.10.0/mingw53_32/include/QtGui/qwindowdefs.h \
-		C:/Qt/5.10.0/mingw53_32/include/QtCore/qobjectdefs.h \
-		C:/Qt/5.10.0/mingw53_32/include/QtCore/qnamespace.h \
-		C:/Qt/5.10.0/mingw53_32/include/QtCore/qobjectdefs_impl.h \
-		C:/Qt/5.10.0/mingw53_32/include/QtGui/qwindowdefs_win.h \
-		C:/Qt/5.10.0/mingw53_32/include/QtCore/qobject.h \
+		C:/Qt/5.10.0/mingw53_32/include/QtCore/qcoreapplication.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qstring.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qchar.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qbytearray.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qrefcount.h \
+		C:/Qt/5.10.0/mingw53_32/include/QtCore/qnamespace.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qarraydata.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qstringliteral.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qstringalgorithms.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qstringview.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qstringbuilder.h \
+		C:/Qt/5.10.0/mingw53_32/include/QtCore/qobject.h \
+		C:/Qt/5.10.0/mingw53_32/include/QtCore/qobjectdefs.h \
+		C:/Qt/5.10.0/mingw53_32/include/QtCore/qobjectdefs_impl.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qlist.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qalgorithms.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qiterator.h \
@@ -559,11 +554,17 @@ release/dllpincodeengine.o: ../DLLPINCode/dllpincodeengine.cpp ../DLLPINCode/dll
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qvarlengtharray.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qcontainerfwd.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qobject_impl.h \
+		C:/Qt/5.10.0/mingw53_32/include/QtCore/qeventloop.h \
+		C:/Qt/5.10.0/mingw53_32/include/QtGui/qwindowdefs.h \
+		C:/Qt/5.10.0/mingw53_32/include/QtGui/qwindowdefs_win.h \
+		C:/Qt/5.10.0/mingw53_32/include/QtCore/qpoint.h \
+		C:/Qt/5.10.0/mingw53_32/include/QtCore/qsize.h \
+		C:/Qt/5.10.0/mingw53_32/include/QtGui/qcursor.h \
+		C:/Qt/5.10.0/mingw53_32/include/QtWidgets/qdesktopwidget.h \
+		C:/Qt/5.10.0/mingw53_32/include/QtWidgets/qwidget.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qmargins.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtGui/qpaintdevice.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qrect.h \
-		C:/Qt/5.10.0/mingw53_32/include/QtCore/qsize.h \
-		C:/Qt/5.10.0/mingw53_32/include/QtCore/qpoint.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtGui/qpalette.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtGui/qcolor.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtGui/qrgb.h \
@@ -589,7 +590,6 @@ release/dllpincodeengine.o: ../DLLPINCode/dllpincodeengine.cpp ../DLLPINCode/dll
 		C:/Qt/5.10.0/mingw53_32/include/QtGui/qfontmetrics.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtGui/qfontinfo.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtWidgets/qsizepolicy.h \
-		C:/Qt/5.10.0/mingw53_32/include/QtGui/qcursor.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtGui/qkeysequence.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtGui/qevent.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qvariant.h \
@@ -605,18 +605,14 @@ release/dllpincodeengine.o: ../DLLPINCode/dllpincodeengine.cpp ../DLLPINCode/dll
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qfiledevice.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtGui/qvector2d.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtGui/qtouchdevice.h \
+		C:/Qt/5.10.0/mingw53_32/include/QtGui/qguiapplication.h \
+		C:/Qt/5.10.0/mingw53_32/include/QtGui/qinputmethod.h \
+		C:/Qt/5.10.0/mingw53_32/include/QtWidgets/QDialog \
+		C:/Qt/5.10.0/mingw53_32/include/QtWidgets/qdialog.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/QString \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/QTimer \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qtimer.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/qbasictimer.h \
-		C:/Qt/5.10.0/mingw53_32/include/QtWidgets/QApplication \
-		C:/Qt/5.10.0/mingw53_32/include/QtWidgets/qapplication.h \
-		C:/Qt/5.10.0/mingw53_32/include/QtCore/qcoreapplication.h \
-		C:/Qt/5.10.0/mingw53_32/include/QtCore/qeventloop.h \
-		C:/Qt/5.10.0/mingw53_32/include/QtWidgets/qdesktopwidget.h \
-		C:/Qt/5.10.0/mingw53_32/include/QtGui/qguiapplication.h \
-		C:/Qt/5.10.0/mingw53_32/include/QtGui/qinputmethod.h \
-		C:/Qt/5.10.0/mingw53_32/include/QtCore/QDebug \
 		ui_dialog.h \
 		C:/Qt/5.10.0/mingw53_32/include/QtCore/QVariant \
 		C:/Qt/5.10.0/mingw53_32/include/QtWidgets/QAction \

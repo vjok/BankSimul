@@ -22,9 +22,9 @@ public:
     void interfaceFunctionLogOut();
     void interfaceFunctionLockCard();
     QString interfaceFunctionShowBalance();
-    QString interfaceFunctionGetFiveAccountEvents();
-    QString interfaceFunctionGetAllAccountEvents();
+    QString interfaceFunctionGetAccountEvent();
     void interfaceFunctionCashWithdrawal(double amount);
+    void interfaceFunctionCashWithdrawalSkipAd(double amount);
     void customerInf();
     void lockCard();
     void interfaceFunctionShowEvents();
